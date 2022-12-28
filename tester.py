@@ -42,53 +42,53 @@ def read_dataset(file_name):
     Reading dataset and preprocessing it to get it in the desired forma
     '''
     res = []
-    temp = pd.read_csv(file_name)
+    file_type=os.path.splitext(file_name)[1]
+    
+    if file_type=='csv':
+        temp = pd.read_csv(file_name)
+    else:
+        temp = pd.read_excel(file_name)
+    
     for _, row in temp.iterrows():
-        inp, target = row['transcription'], f'action {row["action"]} object {row["object"]} location {row["location"]}'
-        res.append((tokenize(inp), tokenize(target)))
+        inp = row['Verbatim Feedback ']
+        res.append(tokenize(inp))
     return res
 
+def put_to_csv(pred_label,summary):
+    pass
 
-def evaluate(model, iterator, valid_ds_orig, pad_id):
+def predict(model, iterator, test_ds_orig, pad_id):
     '''
     function: Evaluating the model
     Input: model, iterator, optimizer, pad_id
     Returns: epoch_loss, epoch_acc
     '''
-    epoch_loss = 0
-    epoch_acc = 0
-    
     model.eval()
     final_pred = []
+    classified_labels=[]
     # Predicted value
-    comp_pred = []
-    # Actual value
-    total = len(valid_ds_orig)
+    total = len(test_ds_orig)
     correct = 0
     with torch.no_grad():
-        for (inp_ids, inp_mask), (target_ids, target_mask) in tqdm(iterator):
+        for (inp_ids, inp_mask)in tqdm(iterator):
             model.to(device)
             inp_ids = inp_ids.to(device)
             inp_mask = inp_mask.to(device)
-            target_ids[target_ids == pad_id] = -100  
-            # needed to ignore padding from loss
-            target_ids = target_ids.to(device)
             
-            predictions = model(input_ids=inp_ids, attention_mask=inp_mask, labels=target_ids)
-            loss = predictions.loss
+            predictions = model(input_ids=inp_ids, attention_mask=inp_mask)
             output = model.generate(input_ids = inp_ids)
+
+            labels=torch.argmax(F.softmax(predictions.logits,dim=1),dim=1)
+            classified_labels.extend(labels)
             # Appending the batch to the final_pred after decoding
             for i in range(len(output)):
-                final_pred.append(tokenizer.decode(output[i], skip_special_tokens=True))
-            epoch_loss += loss.item()
+                if(labels[i]==0):
+                    final_pred.append(tokenizer.decode(output[i], skip_special_tokens=True))
+                else:
+                    final_pred.append("")
+         
     
-    # Obtaining accuracy
-    for i in range(len(valid_ds_orig)):
-        comp_pred.append('action '+valid_ds_orig.iloc[i]['action']+' object '+valid_ds_orig.iloc[i]['object']+' location '+valid_ds_orig.iloc[i]['location'])
-        correct += (comp_pred[i] == final_pred[i])
-    print("Correct:",correct,"/",total)
-    epoch_acc = (correct/total)*100.0
-    return epoch_loss / len(iterator), epoch_acc
+    return classified_labels,final_pred
 
 
 def run(model, tokenizer, root_dir):
@@ -103,11 +103,11 @@ def run(model, tokenizer, root_dir):
     pad_id = tokenizer.convert_tokens_to_ids(pad_token)
     
     # Reading dataset and preprocessing it to get it in the desired format
-    valid_ds = read_dataset(f'{root_dir}/test.csv')
+    test_ds = read_dataset(f'{root_dir}/test.xlsx')
     
     # Dataloader
-    valid_loader = DataLoader(
-        dataset=valid_ds,
+    test_loader = DataLoader(
+        dataset=test_ds,
         batch_size=BATCH_SIZE,
         shuffle=False,
         drop_last=False,
@@ -119,8 +119,8 @@ def run(model, tokenizer, root_dir):
     valid_ds_orig = pd.read_csv(f'{root_dir}/test.csv')
     
     # Validating
-    valid_loss, valid_acc = evaluate(model, valid_loader, valid_ds_orig, pad_id)
-    print(f'\t Val. Loss: {valid_loss:.3f} |  Val. Acc: {valid_acc:.2f}%')
+    prediction_labels,summary = predict(model, test_loader, valid_ds_orig, pad_id)
+    put_to_csv(prediction_labels,summary)
 
 if __name__ == "__main__":
     # Helps make all paths relative
