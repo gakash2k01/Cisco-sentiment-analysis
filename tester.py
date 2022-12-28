@@ -55,7 +55,11 @@ def read_dataset(file_name):
     return res
 
 def put_to_csv(pred_label,summary):
-    pass
+    df=pd.DataFrame()
+    df['Sentiment']=pred_label
+    df['Summary']=summary
+    df.to_csv('Output.csv', index = True)
+
 
 def predict(model, iterator, test_ds_orig, pad_id):
     '''
