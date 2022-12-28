@@ -1,21 +1,15 @@
 import torch
-import torch.nn as nn
-import torch.nn.functional as F
 import torch.optim as optim
 import pandas as pd
 from torch.utils.data import DataLoader
-import torch.nn.functional as F
 from sklearn.model_selection import train_test_split
 
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 from tqdm import tqdm
 import numpy as np
 import pandas as pd
-import time,yaml,wandb
-import random, swifter
-import functools
-from sklearn.metrics import f1_score
-import pathlib,os,sys
+import yaml,wandb
+import pathlib,os
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -42,32 +36,30 @@ def tokenize(text):
 
 def read_dataset(file_name):
     '''
-    Reading dataset and preprocessing it to get it in the desired forma
+    Reading dataset and preprocessing it to get it in the desired format
     '''
     res = []
     targets = []
     temp = pd.read_csv(file_name)
     temp['Score'] = temp['Score'].apply(lambda x: int(x > 3))
     temp = temp.rename(columns={'Score': 'Label', 'Text': 'Feedback', 'Summary': 'summary'})
-    length_of_the_messages = temp["Feedback"].str.split("\\s+")
-    index = 0
-    indexes = []
-    for l in tqdm(length_of_the_messages.str.len()):
-        if l > 100 or l<3:
-            indexes.append(index)
-        index +=1
-    temp.drop(index = indexes, axis = 0, inplace = True)
-    temp = temp.dropna()
     print("Tokenizing data")
     # counter = 0
+    skipped = 0
     for _, row in tqdm(temp.iterrows()):
         # Converting the labels to the given format to make it easier to train.
         inp, target = f"feedback {row['Feedback']}", f"{row['Label']} {row['summary']}"
-        res.append((tokenize(inp), tokenize(target)))
+        temp1 = tokenize(inp)
+        temp2 = tokenize(target)
+        skipped +=1
+        if(len(temp1[0])!= 512 or len(temp2[0]) != 512):
+            continue
+        res.append((temp1, temp2))
         targets.append(target)
         # if counter > 1000:
         #     break
         # counter +=1
+    print('Skipped: ', skipped)
     print("Dataset read successfully.", len(res), len(targets))
     return res, np.array(targets)
 
@@ -139,7 +131,7 @@ def evaluate(model, iterator, valid_ds_orig, pad_id, valid_labels):
     # print("Check:", final_pred)
     for i in range(len(valid_ds_orig)):
         correct += (str(valid_labels[i])[:1] == str(final_pred[i])[:1])
-        print("Expected:", valid_labels[i], "Predicted:", final_pred[i])
+        # print("Expected:", valid_labels[i], "Predicted:", final_pred[i])
     print("Correct:",correct,"/",total)
     epoch_acc = (correct/total)*100.0
     return epoch_loss / len(iterator), epoch_acc
@@ -152,9 +144,6 @@ def run(model, tokenizer, root_dir):
     torch.cuda.empty_cache()
     seed_everything(SEED)
 
-    # Maximum number of characters in a sentence. Set to 512.
-    max_input_length = 4* tokenizer.max_model_input_sizes[model_name]
-    # print("Size ", max_input_length)
     pad_token = tokenizer.pad_token
     
     # Padding helps prevent size mistmatch
@@ -224,7 +213,7 @@ if __name__ == "__main__":
 
     SEED = 1234
     # Since the dataset is simple, 1 epoch is sufficient to finetune.
-    num_epoch = 100
+    num_epoch = 25
     num_workers = 2
     # Path to the dataset
     root_dir = f"{base_path}/task_data"
