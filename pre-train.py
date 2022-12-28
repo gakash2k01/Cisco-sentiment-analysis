@@ -12,7 +12,7 @@ from tqdm import tqdm
 import numpy as np
 import pandas as pd
 import time,yaml,wandb
-import random
+import random, swifter
 import functools
 from sklearn.metrics import f1_score
 import pathlib,os,sys
@@ -49,31 +49,27 @@ def read_dataset(file_name):
     temp = pd.read_csv(file_name)
     temp['Score'] = temp['Score'].apply(lambda x: int(x > 3))
     temp = temp.rename(columns={'Score': 'Label', 'Text': 'Feedback', 'Summary': 'summary'})
-    print(temp.columns)
     length_of_the_messages = temp["Feedback"].str.split("\\s+")
-    cnt = 0
-    cnt1 = 0
     index = 0
     indexes = []
     for l in tqdm(length_of_the_messages.str.len()):
-        if l > 200:
+        if l > 100 or l<3:
             indexes.append(index)
         index +=1
     temp.drop(index = indexes, axis = 0, inplace = True)
+    temp = temp.dropna()
     print("Tokenizing data")
     # counter = 0
     for _, row in tqdm(temp.iterrows()):
         # Converting the labels to the given format to make it easier to train.
         inp, target = f"feedback {row['Feedback']}", f"{row['Label']} {row['summary']}"
-        temp1 = tokenize(inp)
-        res.append((temp1, tokenize(target)))
+        res.append((tokenize(inp), tokenize(target)))
         targets.append(target)
-        # if counter > 10000:
+        # if counter > 1000:
         #     break
         # counter +=1
-    
     print("Dataset read successfully.", len(res), len(targets))
-    return res, targets
+    return res, np.array(targets)
 
 
 def train(model, iterator, optimizer, pad_id):
@@ -157,7 +153,7 @@ def run(model, tokenizer, root_dir):
     seed_everything(SEED)
 
     # Maximum number of characters in a sentence. Set to 512.
-    max_input_length = tokenizer.max_model_input_sizes[model_name]
+    max_input_length = 4* tokenizer.max_model_input_sizes[model_name]
     # print("Size ", max_input_length)
     pad_token = tokenizer.pad_token
     
