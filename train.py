@@ -68,6 +68,7 @@ def train(model, iterator, optimizer, pad_id):
     model.train()
     for (inp_ids, inp_mask), (target_ids, target_mask) in tqdm(iterator):
         model.to(device)
+        torch.cuda.empty_cache()
         optimizer.zero_grad()
         inp_ids = inp_ids.to(device)
         inp_mask = inp_mask.to(device)
@@ -78,8 +79,9 @@ def train(model, iterator, optimizer, pad_id):
         predictions = model(input_ids=inp_ids, attention_mask=inp_mask, labels=target_ids)
         # Obtaining the crossEntropyLoss
         loss = predictions.loss
-        loss.backward()
+        # loss.backward()
         optimizer.step()
+        torch.cuda.empty_cache()
         epoch_loss += loss.item()
         
     return epoch_loss / len(iterator)
@@ -166,10 +168,11 @@ def run(model, tokenizer, root_dir, learning_rate):
         num_workers=num_workers)
     
     optimizer = optim.Adam(model.parameters(), lr = learning_rate)
-    weight_path = f'{base_path}/weights/best_model.pth'
+    weight_path = f'{base_path}/weights/best_model3.pth'
     if os.path.exists(weight_path):
         model.load_state_dict(torch.load(weight_path, map_location='cpu'))
-        learning_rate = learning_rate/10
+        print("Loaded model.")
+        learning_rate = 0
     model = model.to(device)
 
     N_EPOCHS = num_epoch
@@ -207,6 +210,7 @@ if __name__ == "__main__":
     learning_rate = cfg["params"]["learning_rate"]
     model_name = cfg["params"]["model_name"]
     device = cfg["params"]["device"]
+    # device = 'cuda:0'
 
     SEED = 1234
     # Since the dataset is simple, 1 epoch is sufficient to finetune.

@@ -41,7 +41,7 @@ def read_dataset(file_name):
     res = []
     targets = []
     temp = pd.read_csv(file_name)
-    temp['Score'] = temp['Score'].apply(lambda x: int(x > 3))
+    temp['Score'] = temp['Score']
     temp = temp.rename(columns={'Score': 'Label', 'Text': 'Feedback', 'Summary': 'summary'})
     print("Tokenizing data")
     # counter = 0

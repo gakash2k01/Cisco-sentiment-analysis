@@ -42,9 +42,10 @@ def read_dataset(file_name):
     Reading dataset and preprocessing it to get it in the desired forma
     '''
     res = []
-    temp = pd.read_csv(file_name)
+    temp = pd.read_excel(file_name)
+    temp = temp.rename(columns={'Job Role': 'Job', 'Verbatim Feedback ': 'Feedback', 'Sentiment (1=Positive & 0= Negative)': 'Label'})
     for _, row in temp.iterrows():
-        inp, target = row['transcription'], f'action {row["action"]} object {row["object"]} location {row["location"]}'
+        inp, target = row['Feedback'], f'{row["Label"]}'
         res.append((tokenize(inp), tokenize(target)))
     return res
 
@@ -83,11 +84,16 @@ def evaluate(model, iterator, valid_ds_orig, pad_id):
             epoch_loss += loss.item()
     
     # Obtaining accuracy
+    valid_ds_orig = valid_ds_orig.rename(columns={'Job Role': 'Job', 'Verbatim Feedback ': 'Feedback', 'Sentiment (1=Positive & 0= Negative)': 'Label'})
+    # valid_ds_orig['Label'] = valid_ds_orig['Label'].astype(str)
     for i in range(len(valid_ds_orig)):
-        comp_pred.append('action '+valid_ds_orig.iloc[i]['action']+' object '+valid_ds_orig.iloc[i]['object']+' location '+valid_ds_orig.iloc[i]['location'])
-        correct += (comp_pred[i] == final_pred[i])
+        comp_pred.append(valid_ds_orig.iloc[i]['Label'])
+        trans = lambda x : int(x > '3')
+        correct += (comp_pred[i] == trans(final_pred[i][:1]))
     print("Correct:",correct,"/",total)
     epoch_acc = (correct/total)*100.0
+    valid_ds_orig['Final Pred'] = final_pred
+    valid_ds_orig.to_csv('submission.csv', index = False)
     return epoch_loss / len(iterator), epoch_acc
 
 
@@ -103,7 +109,7 @@ def run(model, tokenizer, root_dir):
     pad_id = tokenizer.convert_tokens_to_ids(pad_token)
     
     # Reading dataset and preprocessing it to get it in the desired format
-    valid_ds = read_dataset(f'{root_dir}/test.csv')
+    valid_ds = read_dataset(f'task_data/train_data.xlsx')
     
     # Dataloader
     valid_loader = DataLoader(
@@ -116,7 +122,7 @@ def run(model, tokenizer, root_dir):
     model = model.to(device)
 
     # Used to find accuracy
-    valid_ds_orig = pd.read_csv(f'{root_dir}/test.csv')
+    valid_ds_orig = pd.read_excel(f'{root_dir}/train_data.xlsx')
     
     # Validating
     valid_loss, valid_acc = evaluate(model, valid_loader, valid_ds_orig, pad_id)
@@ -149,6 +155,6 @@ if __name__ == "__main__":
     print("Loading model and weights...")
     model = T5ForConditionalGeneration.from_pretrained(model_name)
     tokenizer = T5Tokenizer.from_pretrained(model_name)
-    checkpoint = torch.load(f"{base_path}/weights/best_model.pth")
+    checkpoint = torch.load(f"{base_path}/weights/best_model1.pth")
     model.load_state_dict(checkpoint)
     run(model, tokenizer, root_dir)
