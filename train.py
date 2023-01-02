@@ -12,7 +12,7 @@ from tqdm import tqdm
 import numpy as np
 import pandas as pd
 import time,yaml,wandb
-import random
+import random, math
 import functools
 from sklearn.metrics import f1_score
 import pathlib,os,sys
@@ -51,9 +51,9 @@ def read_dataset(file_name):
     print(temp.columns)
     for _, row in temp.iterrows():
         # Converting the labels to the given format to make it easier to train.
-        inp, target = f"feedback {row['Feedback']}", f"{row['Label']}"
+        inp, target = f"feedback {row['Feedback']}", f"{row['Rating']} {row['Summary']}"
         res.append((tokenize(inp), tokenize(target)))
-    return res, temp['Label']
+    return res, temp['Rating']
 
 
 def train(model, iterator, optimizer, pad_id):
@@ -79,7 +79,7 @@ def train(model, iterator, optimizer, pad_id):
         predictions = model(input_ids=inp_ids, attention_mask=inp_mask, labels=target_ids)
         # Obtaining the crossEntropyLoss
         loss = predictions.loss
-        # loss.backward()
+        loss.backward()
         optimizer.step()
         torch.cuda.empty_cache()
         epoch_loss += loss.item()
@@ -122,13 +122,21 @@ def evaluate(model, iterator, valid_ds_orig, pad_id, valid_labels):
     
     # Obtaining accuracy
     valid_labels = np.array(valid_labels)
+    rmse = 0.0
+    me = 0.0
     # print("Check:", final_pred)
     for i in range(len(valid_ds_orig)):
-        correct += (str(valid_labels[i]) == str(final_pred[i]))
+        correct += (((int(str(valid_labels[i])[:1]))>3) == ((int(str(final_pred[i])[:1]))>3))
+        rmse += ((int((str(valid_labels[i])[:1])) - int((str(final_pred[i])[:1])))**2)
+        me += abs((int((str(valid_labels[i])[:1])) - int((str(final_pred[i])[:1]))))
         print("Expected:", valid_labels[i], "Predicted:", final_pred[i])
     print("Correct:",correct,"/",total)
+    rmse = rmse/len(valid_ds_orig)
+    me = me/len(valid_ds_orig)
+    rmse = math.sqrt(rmse)
+    print("RMSE score: ", rmse)
     epoch_acc = (correct/total)*100.0
-    return epoch_loss / len(iterator), epoch_acc
+    return epoch_loss / len(iterator), epoch_acc, rmse, me
 
 
 def run(model, tokenizer, root_dir, learning_rate):
@@ -146,7 +154,7 @@ def run(model, tokenizer, root_dir, learning_rate):
     pad_id = tokenizer.convert_tokens_to_ids(pad_token)
     
     # Reading dataset and preprocessing it to get it in the desired format
-    train_ds, labels_ds = read_dataset(f'{root_dir}/train_data.xlsx')
+    train_ds, labels_ds = read_dataset(f'{root_dir}/train_labelled.xlsx')
     print("Dataset size: ", len(train_ds))
     train_ds, valid_ds, train_labels, valid_labels = train_test_split(train_ds, labels_ds, test_size=0.2, random_state=42)
     print("Train size: ", len(train_ds), "Test size: ", len(valid_ds), len(train_labels), len(valid_labels))
@@ -168,11 +176,11 @@ def run(model, tokenizer, root_dir, learning_rate):
         num_workers=num_workers)
     
     optimizer = optim.Adam(model.parameters(), lr = learning_rate)
-    weight_path = f'{base_path}/weights/best_model3.pth'
+    weight_path = f'{base_path}/weights/best_model.pth'
     if os.path.exists(weight_path):
         model.load_state_dict(torch.load(weight_path, map_location='cpu'))
         print("Loaded model.")
-        learning_rate = 0
+        learning_rate = learning_rate/10
     model = model.to(device)
 
     N_EPOCHS = num_epoch
@@ -185,13 +193,13 @@ def run(model, tokenizer, root_dir, learning_rate):
         
         # Validation
         valid_ds_orig = valid_ds_copy
-        valid_loss, valid_acc = evaluate(model, valid_loader, valid_ds_orig, pad_id, valid_labels)
+        valid_loss, valid_acc, rmse, me = evaluate(model, valid_loader, valid_ds_orig, pad_id, valid_labels)
         print(f'\t Val. Loss: {valid_loss:.3f} |  Val. Acc: {valid_acc:.2f}%')
         if(valid_acc>best_acc):
             best_acc = valid_acc
-            torch.save(model.state_dict(), f'{base_path}/weights/best_model.pth')
+            torch.save(model.state_dict(), f'{base_path}/weights/best_model_final.pth')
             print("Model saved.")
-        wandb.log({"Training loss": train_loss, "Validation loss": valid_loss, "Validation accuracy": valid_acc})
+        wandb.log({"Training loss": train_loss, "Validation loss": valid_loss, "Validation accuracy": valid_acc, "RMSE": rmse, "ME": me})
 
 if __name__ == "__main__":
     # Helps make all paths relative

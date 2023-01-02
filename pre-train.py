@@ -174,7 +174,9 @@ def run(model, tokenizer, root_dir):
     optimizer = optim.Adam(model.parameters(), lr = learning_rate)
 
     model = model.to(device)
-
+    weight_path = f'{base_path}/weights/best_model3.pth'
+    model.load_state_dict(torch.load(weight_path, map_location='cpu'))
+    print("Loaded model.")
     N_EPOCHS = num_epoch
     best_acc = 0.0
     for epoch in range(N_EPOCHS):
@@ -187,9 +189,9 @@ def run(model, tokenizer, root_dir):
         valid_ds_orig = valid_ds_copy
         valid_loss, valid_acc = evaluate(model, valid_loader, valid_ds_orig, pad_id, valid_labels)
         print(f'\t Val. Loss: {valid_loss:.3f} |  Val. Acc: {valid_acc:.2f}%')
-        if(valid_acc>best_acc):
+        if(True):
             best_acc = valid_acc
-            torch.save(model.state_dict(), f'{base_path}/weights/best_model.pth')
+            torch.save(model.state_dict(), f'{base_path}/weights/best_model{epoch+4}.pth')
             print("Model saved.")
         wandb.log({"Training loss": train_loss, "Validation loss": valid_loss, "Validation accuracy": valid_acc})
 

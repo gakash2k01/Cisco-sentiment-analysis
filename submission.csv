@@ -1,394 +1,395 @@
-Product  ,Job,Feedback,Label,Final Pred
-IX,XYZ,There is no  maintenance menu,0,- No menu
-IX,Architect,Very buggy.,0,VERY BUY
-IX,PQR,High quality -  standards,1,1 High Quality - Quality
-IX,Sales Specialist,Features missing,0,Feature missing
-IX,Architect,how to do the inter-working,0,- how to do the inter-work
-IX,XYZ,High price for pre-aggregation role,0,- High price for pre-aggregations role
-IX,Sales Specialist,Not much deployed,0,a little disappointed
-IX,PQR,Overall throughput constrained,0,0 YUCK
-IX,XYZ,"feels like this product is the step child, concerned it will be gone shortly",0,i think this is the step child
-IX,Support,The problem has always been constant.,0,
-IX,Operations,Had great upgrade,1,1 Great upgrade
-IX,Engineer,Improve from the overall. Keep up the good work,1,1 Good stuff
-IX,CXO,No issues observed,1,0 No issues
-IX,Support, Some ongoing issues so far.Few issues reported so far on customer.,0,a lot of issues
-IX,Support,There are many bugs that make it difficult to determine whether it is software or hardware,0,Quite bugs
-IX,Support,lacks of documentation of unSupported features and features combinations. ,0,- lack of documentation
-QK,XYZ,There is no partner maintenance menu,0,- No maintenance
-QK,PQR,"SW quality is too low, it can't meet our customer's expectation.",0,Yummy
-QK,PQR,High quality standards,1,- High Quality
-QK,XYZ,Missing feat Support in a newer router build ,0,.....
-QK,Architect,Great feature adoption and product versatility. ,1,1 Great Product
-QK,Architect,Weakness in  cab requirements ,0,cabs
-QK,"Leader, Client Executive",Again to many miss alignment and code issue,0,0 miss alignment
+Product  ,Job,Feedback,Label,Summary,Rating,Final Pred
+IX,XYZ,There is no  maintenance menu,0,No maintenance menu,2,5 No menu changes
+IX,Architect,Very buggy.,0,buggy,1,1 Very buggy
+IX,PQR,High quality -  standards,1,Good quality,5,5 High Quality
+IX,Sales Specialist,Features missing,0,Features missing,2,2 Missing items
+IX,Architect,how to do the inter-working,0,Inter-working unclear,2,5 How to do the inter-work
+IX,XYZ,High price for pre-aggregation role,0,high price,2,5 Great price for pre-aggregaton role
+IX,Sales Specialist,Not much deployed,0,not deployed,2,2 Not much deployed
+IX,PQR,Overall throughput constrained,0,throughput constraint,2,4 Overall throughput constrained
+IX,XYZ,"feels like this product is the step child, concerned it will be gone shortly",0,not a good product,1,1 not good
+IX,Support,The problem has always been constant.,0,constantly problematic,2,5 Always a problem
+IX,Operations,Had great upgrade,1,great upgrade,5,5 Great upgrade
+IX,Engineer,Improve from the overall. Keep up the good work,1,Improved,5,5 Better than the overall
+IX,CXO,No issues observed,1,All okay,4,5 No issues observed
+IX,Support, Some ongoing issues so far.Few issues reported so far on customer.,0,Few issues reported,3,2 Issues resolved
+IX,Support,There are many bugs that make it difficult to determine whether it is software or hardware,0,Many bugs,1,3 Hard to determine whether it is actually a product or a hardware
+IX,Support,lacks of documentation of unSupported features and features combinations. ,0,No documentation,2,2 Uncertain features
+QK,XYZ,There is no partner maintenance menu,0,No maintenance menu,2,5 No partner menu
+QK,PQR,"SW quality is too low, it can't meet our customer's expectation.",0,low quality,1,2 SW quality too low
+QK,PQR,High quality standards,1,high quality,5,5 High Quality
+QK,XYZ,Missing feat Support in a newer router build ,0,no support in new router,2,5 Missing feat Support in a newer router build.
+QK,Architect,Great feature adoption and product versatility. ,1,good feature adoption,5,5 Great product
+QK,Architect,Weakness in  cab requirements ,0,weakness in cab requirements,2,2 Weakness in cab requirements
+QK,"Leader, Client Executive",Again to many miss alignment and code issue,0,Mis-allignment and code issues,1,1 Miss alignment
 QK,Sales Specialist,"Waiting for more 
-Time and Security feature set",1,0 Wait for more time and security feature set
-QK,Solutions,easy to implement,1,1 easy to use
-QK,Systems Engineer,Great product and very advantageous compared to competitors. However we are encountering some performance issues in throughput sometimes.,1,1 Great product
-QK,XYZ,Many models are similar in terms of interfaces ,1,Several similar models
-QK,Architect,Good Product,1,1 Good Product
-QK,XYZ,Good service,1,1 Good service
-QK,PQR,"Going well, still finding some features that need to be incorporated",1,Yummy
-QK,Business SolutionsArchitect,good product ,1,1 good product
-QK,Systems Engineer,missing Features,0,0 missing Features
-QK,Architect,Critical support granted,1,1 Critical Support
-QK,Architect,The quality of our documentation is constantly falling behind,0,"Despite the quality of our documentation, we are constantly waiting for quality"
-QK,Technical Solutions Specialist,Good support,1,1 Good support
-QK,"Leader, Client Executive",Need to fix supply chain.  Twelve month lead times are killing us.,0,Yummy
-QK,Architect,Moderate service quality,0,- Moderate service quality
-QK,Systems Engineer,low product quality,0,0 low quality product quality
-QK,XYZ,Multiple technical and HW issues,0,Several technical issues
-QK,PQR,Multiple timing and system upgrade issues ,0,Several issues
-QK,Sales Business Development Manager,Slow and inconsistent ,0,Temptation
-QK,"Director, Regionalabc",Executive Lead times,0,1 - 0
-QK,XYZ,Slow,0,Yummy Slow Slow Slow Slow Slow Slow Slow Slow Slow Slow Slow Slow Slow Slow Slow Slow
-QK,PQR,"Product has been very successful with my customers.While SW quality has improved, we need to continue to identify more use-cases and test against those use-cases.",1,1 Great Product
-QK,XYZ,convolve one transition,1,0 a tast
-QK,Solutions,Full spectrum position in front of customers,1,Optimum
-QK,Sales Specialist,Good,1,1 Good
-QK,Architect,No information on how to do the inter-working,0,0 No information on how to do the inter-work
-QK,Architect,Different HW with different features and even CLIs are usually put in the same documentation.,1,Usually the same documentation
-QK,PQR,Excellent innovation and amazing product evolution to Support different use cases,1,1 Excellent product
-QK,Support,The image of a certain customer getting angry on a regular basis,0,a stale image
-QK,Support,Good delivery,1,1 Good
-QK,Support,Documentation need to be improved.,1,- Not a good document
-QK,Engineer,Reliable product,1,1 Yummy
-QK,Operations,Have the feeling like its a good box for its price point,1,1 Good Box
-QK,Engineer,Services/Features is rather slow,0,Quite slow
-QK,Operations,Load-balancing,1,Load-balancing
-QK,Technical Leader,"what i heard from folks, is its costly box with limited feature set.",0,i heard from folks
-QK,Support,Scalable deal,1,Stackable deal
-QK,Engineer,Improve from the overall.Keep up the good work,1,1 Good stuff
-QK,Manager,Provide more parity  compared to XYZ,0,1 XYZ
-QK,CXO,Lots of BUGS,0,YUM
-QK,Engineer,Customer getting good result,1,1 good product
-QK,Manager,Silent reload issuessilent reload issues.,0,reload issues
-QK,Support,I cannot apply workaround ,0,0 stale
-QK,Manager,Excellent innovation and amazing product evolution to Support different use cases,1,1 Excellent product
-QK,Technical Leader,Good,1,1 Good
-QK,Support,There are many bugs that make it difficult to determine whether it is software or hardwareT,0,0 Bugs
-QK,Manager,Software quality is NOT good. Too many bugs  it's very unstable in general.,0,- YUCK
+Time and Security feature set",1,time and security features required,3,5 Waiting for more time and security feature set
+QK,Solutions,easy to implement,1,easy to implement,4,5 easy to use
+QK,Systems Engineer,Great product and very advantageous compared to competitors. However we are encountering some performance issues in throughput sometimes.,1,better than others but throughput issues,3,5 Great Product
+QK,XYZ,Many models are similar in terms of interfaces ,1,similar models,2,3 Similar to many models
+QK,Architect,Good Product,1,good product,4,5 Good Product
+QK,XYZ,Good service,1,good service,4,5 Good service
+QK,PQR,"Going well, still finding some features that need to be incorporated",1,going well,4,4 Good
+QK,Business SolutionsArchitect,good product ,1,good product,4,5 good product
+QK,Systems Engineer,missing Features,0,missing features,2,5 missing Features
+QK,Architect,Critical support granted,1,support granted,4,5 Great support
+QK,Architect,The quality of our documentation is constantly falling behind,0,low quality documentation,2,1 Quality of product is constantly falling
+QK,Technical Solutions Specialist,Good support,1,good support,4,5 Great support
+QK,"Leader, Client Executive",Need to fix supply chain.  Twelve month lead times are killing us.,0,Need to fix supply chain,2,1 supply chain needs work
+QK,Architect,Moderate service quality,0,moderate quality,3,4 Moderate service quality
+QK,Systems Engineer,low product quality,0,low quality,1,1 low quality
+QK,XYZ,Multiple technical and HW issues,0,technical and HW issues,1,1 Problems
+QK,PQR,Multiple timing and system upgrade issues ,0,timing and upgrade issues,1,2 Multiple timing and system upgrade issues
+QK,Sales Business Development Manager,Slow and inconsistent ,0,Slow and inconsistent,1,2 Inconsistent
+QK,"Director, Regionalabc",Executive Lead times,0,Executive Lead times,3,5 VP
+QK,XYZ,Slow,0,Slow,2,3 Slow Slow Slow Slow Slow Slow Slow Slow Slow Slow Slow Slow Slow Slow Slow Slow Slow Slow
+QK,PQR,"Product has been very successful with my customers.While SW quality has improved, we need to continue to identify more use-cases and test against those use-cases.",1,Successful product,5,4 Good product
+QK,XYZ,convolve one transition,1,convolve one transition,2,5 a good transition
+QK,Solutions,Full spectrum position in front of customers,1,Full spectrum position,4,5 Full spectrum
+QK,Sales Specialist,Good,1,Good,4,5 Good Stuff
+QK,Architect,No information on how to do the inter-working,0,Inter-working unclear,2,1 No info on how to do the inter-work
+QK,Architect,Different HW with different features and even CLIs are usually put in the same documentation.,1,different feautures in same documentation,2,1 Different HWs
+QK,PQR,Excellent innovation and amazing product evolution to Support different use cases,1,Good evolution,5,5 Excellent product
+QK,Support,The image of a certain customer getting angry on a regular basis,0,angry customers,1,1 Unhappy Customer
+QK,Support,Good delivery,1,good delivery,4,5 Good delivery
+QK,Support,Documentation need to be improved.,1,need to improve documentation,2,3 Needs Improvement
+QK,Engineer,Reliable product,1,reliable product,4,4 Good Product
+QK,Operations,Have the feeling like its a good box for its price point,1,value for money,4,4 Good for the price
+QK,Engineer,Services/Features is rather slow,0,slow,2,2 Quite slow delivery
+QK,Operations,Load-balancing,1,Load-balancing,4,5 Loaded with flavor
+QK,Technical Leader,"what i heard from folks, is its costly box with limited feature set.",0,"Costly, limited features",2,3 expensive box
+QK,Support,Scalable deal,1,Scalable deal,4,4 Good deal
+QK,Engineer,Improve from the overall.Keep up the good work,1,Improved,4,5 Great
+QK,Manager,Provide more parity  compared to XYZ,0,Provide more parity,4,4 Better than XYZ
+QK,CXO,Lots of BUGS,0,Very buggy,1,5 Lots of BUGS
+QK,Engineer,Customer getting good result,1,happy customer,4,5 good product
+QK,Manager,Silent reload issuessilent reload issues.,0,silent reload issues,2,1 Silent reload issues
+QK,Support,I cannot apply workaround ,0,cannot apply workaround,2,1 i can't apply workaround
+QK,Manager,Excellent innovation and amazing product evolution to Support different use cases,1,Good evolution,5,5 Excellent product
+QK,Technical Leader,Good,1,Good,4,5 Good Stuff
+QK,Support,There are many bugs that make it difficult to determine whether it is software or hardwareT,0,Many bugs,1,3 It is not the same as the original
+QK,Manager,Software quality is NOT good. Too many bugs  it's very unstable in general.,0,low quality,1,1 Instinky
 QK,"Leader, Customer Executive","port issues.
-",0,- port issues
-QK,Engineer,Hard to explain the behavior on smart licensing.,0,- a little bit of a stale tasty
-QK,Support,Product worked well getting result,1,Fab
-QK,Support,Is there a lot of bad issues,0,Yummy
-QK,"Leader, Customer Executive",Many test are realetd to failures ,0,Often failures
-QK,Support,Its working fine,1,i like it
-QK,Manager,"Better upgrade/downgrade, boot documentation with step by step details",0,"1 Better upgrade/downgrade, boot documentation with boot details"
-QK,Support,lacks of documentation of unSupported features and features combinations,0,- lack of documentation
-QK,Engineer [C],working for an customer,1,a customer
-QK,Operations,Good.great product,1,1 great product
-QK,"Leader, Customer Executive",usecase varied,1,a
-QK,Engineer,product awesome result,1,i love this product
-QK,Business Development Manager,delivery outcome,1,Result
-DX,XYZ,There isno partner maintenance menu,0,0 not available
-DX,XYZ,Our experience is we have problem and issues,0,0 Problem
-DX,Architect,software quality issues,0,QA
-DX,XYZ,Missing evolution path ,0,Yummy
-DX,Sales Specialist,usage varied,1,0
-DX,XYZ,Execution well,1,1
-DX,Architect,New features are back and forth even for not significant changes,0,Yummy
-DX,Architect,Weakness in cab requirements,0,cabs
-DX,Architect,Fits the requirements and is price competitive,1,1 Great Price
-DX,PQR,satisfied with strong Support,1,1 Strong Support
-DX,Architect,Need to watch out a lot on the scalability before deployment.Need to document the scalability issues.,1,scalability issues
-DX,Systems Engineer,scale limitations comparing,1,0 Counting
-DX,XYZ,Story is missing,0,a missing story
-DX,Systems Engineer,Customer getting good result,1,1 good product
-DX,XYZ,Minimum requirements should be dialed down ,0,0 Minimum requirements should be dialed down
-DX,PQR,Best value for money,1,1 Best value for money
-DX,Architect,Good catchup,1,1 Good catchup
-DX,Recruiting,Good ,1,1 Good
-DX,Architect,Working excellent,1,1 Excellent
-DX,Systems Engineer,Great product and very competitive commercially.,1,1 Great product
-DX,"Leader, Client Executive",Need feature set ,1,Need feature set
-DX,PQR,Things like lack of XYZ are a challenge sometimes. ,0,XYZ
-DX,Architect,Challenge to implement,0,- Challenge to implement
-DX,Solutions,Good. I've also heard this first hand from customers and partners.,1,1 Good
-DX,Architect,Documentation is not very clear about it.Different HW with different features and even CLIs are usually put in the same documentation.,0,- Not very clear
-DX,Architect,The quality of our documentation is constantly falling behind,0,"Despite the quality of our documentation, we are constantly waiting for quality"
-DX,Architect,I feel that We need to be more competitive in price.,0,1 Good Price
-DX,"Director, Regionalabc",Executive lead times; error documentation (misleading and resulting in feature gap),0,0 error documentation
-DX,Architect,false positive out of compliance and potential software upgrade rejection.,0,0 false positive
-DX,PQR,lack of several features ,0,Yummy
-DX,Architect,We need to close the gap,1,- We need to close the gap
-DX,Architect,Very buggy. ,0,VERY BUY
-DX,XYZ,we need too long to close ,0,- too long
-DX,PQR,Issues with timing,0,- timing issues
-DX,Sales Business Development Manager,Slow and inconsistent Validation ,0,Temptation
-DX,PQR,Roadmap consistency,1,0 Roadmap consistency
-DX,Architect,Scaling issuesIssues with scale,0,scaling issues
-DX,XYZ,Through put license cannot be shared to the other,0,
-DX,Sales Specialist,Good,1,1 Good
-DX,Solutions,Consistent Product,1,- Consistent Product
-DX,Solutions, very excited about some of the newer products,1,1 newer product
-DX,"Leader, Client Executive",Steady  platform.,1,Pod Steady
-DX,Architect,have been very stable,1,a very stable
-DX,XYZ,Price performanceflexible pricing structure,1,Optimum price performanceflexible pricing structure
-DX,Solutions,I think the overall  product line is very good. There is pretty much a box for any application,1,1 Very good product
-DX,Architect,Hardware documents incomplete,0,-
-DX,Architect,Best value for money,1,1 Best value for money
-DX,PrincipalabcArchitect,Best value for money,1,1 Best value for money
-DX,Sales Specialist,Excellent delivery,1,Excellent
-DX,Support,There are hardly any tools to help troubleshoot an issue on this platform. ,0,Almost as good as this
-DX,Technical Leader,"what i heard from folks, is its costly box with limited feature set.",0,i heard from folks
-DX,Support,Scalable deal,1,Stackable deal
-DX,Support,Nowadays experiencing lot of  issues.,0,Usually a lot of issues
-DX,Operations,Good. some bugs to address.,1,a little bit of a bug
-DX,Technical Leader,"Generally good, but limited functionality ",1,"Generally good, but limited functionality"
-DX,Engineer,support is always there,1,1 great support
-DX,Support,It is harder to troubleshoot to me,0,.....
-DX,High Touch Operations Manager,Disadvantage,0,DISAPPOINTMENT
-DX,Support,Felt good,1,Felt good
-DX,CXO,Just starting to get acquainted. Seems like a great addition to the portfolio.,1,1 Great addition to the portfolio
-DX,Support,I think quality is being improved little by little.,1,1 Good quality
-DX,High Touch Operations Manager,"All in all a good product, but not past its growing pains. ",1,1 Good product
-DX,Engineer,Still hit by many bugs that become a driver or a limitation on how we design and deploy,0,1 Bugs
-DX,Support,Bugs and different than other ,0,a Bug
-DX,Support,There are many bugs that make it difficult to determine whether it is software or hardware,0,Quite bugs
-DX,Operations,"Way, way too buggy, Would you buy a car that needs to go to the shop every single week to get fixed ? The lack of SW quality.",0,Yummy
-DX,Engineer,Hard to get information on detail information.Root cause is unknown.,0,0 Not a complete detail information
-IX,XYZ,Not price competitive in the market (pre-agg role),0,- Not price competitive
-IX,PQR,low product quality,0,0 low quality product quality
-IX,"Leader, Regionalabc",There are many troubles when upgrading ,0,0 Not the best
-IX,Architect,There are many basic defects of HW,0,hW
-IX,XYZ,Although it solves some customer challenges and provides a solution  it is not a cost effective solution.,0,1 Great solution
-IX,Architect,too many bugsToo many bugs,0,Yummy bugs
-IX,Architect,Lack of basic features  and a lot of bugs.,0,Yummy
-IX,Support,We found a HW issue. Could be SW.There is a lot of doc. It would be good to centralized.,1,0 HW
-IX,Support,fixed,1,0 fixed fixed fixed fixed fixed fixed fixed fixed fixed fixed fixed fixed fixed fixed fixed fixed fixed
-IX,Support,needs to test this boxes properly,1,ms
-IX,Engineer,Too many glitches. Many of the bugs are of a low level.,0,Yummy
-IX,Support,Very poor drop accounting and troubleshooting capabilities.  Support is pretty much guess work and relying on other boxes in the network to provide the missing clues.,0,VERY poor drop accounting
-IX,Principal Engineer,Difficulties in troubleshooting for silent reload type issue,0,difficulties in troubleshooting for silent reload type issue
-IX,"Leader, Customer Executive",good product,1,1 good product
-IX,Support,well executed,1,1 good
-IX,Support,"good product with enhanced Architecture , but this product also needs time to become as stable",1,", but needs time"
-IX,Support,I think there are still bugs that can only be considered lack of testing. Both software and hardware should be  improve.,0,0 Bugs
-IX,Manager,Dissatisfaction is due to lack of debugability and Supportability  Including documentation.,0,DISAPPOINTMENT
-IX,Manager,stable,0,stable
-IX,Technical Project Manager [C],The requirements for multi-dimensional scale is greater for the service providers than individual customers,1,- Multi-dimensional scale
-IX,Manager,release delay,0,0 delay in release
-IX,Operations,Endless problems,0,YUM
-IX,Operations,often complicated to make properly work features that are very common and widespread,0,Often complicated to make properly work features
-IX,"Leader, Customer Executive",complicated to work on,0,kompliziert
-IX,Engineer,There are so many bugs and hidden specification restrictions ,0,Yummy bugs
-IX,Support, defective hardware,0,faulty
-IX,Support,"Cost effective hardware, well perceived by customers.",1,1 Great Product
-IX,Engineer,outcomes are highly seen,1,Results are highly seen
-IX,Support,result oriented,1,Result oriented
-IX,Architect,no improvement,1,ne s'aggrave
-IX,Architect,Need improvement ,0,- Need improvement
-IX,XYZ,High price point compared to competition.,0,1 Great price
-IX,Architect,integration required,0,iote
-IX,Sales Specialist,missing features,1,- missing features
-IX,Architect,Requires LAN port.,0,LAN port
-IX,Sales Specialist,Slotting rules are very cumbersome.Too many rules.,0,Yummy
-IX,Solutions,Defined goals,1,Defining
-IX,Systems Engineer,good proposal for aggregation,1,1 good idea
-IX,Architect,Great features and address a specific place in the network,1,1 Great product
-IX,Engineer,Manual has some features which were outdated. The device has upgrade issues which even when addressed are having a impact on time when delivering. Constant SMUs to address issues which are expected to come in the software. Customer perception is low and it means extra work and concessions from the service teams to make it work. No killer feature which helps stand out against more well established products like the ASR9KToo many SMUs on features that are already in the software base. Maybe a way to install them without having to reload the forwarding engine on the router would improve the situation.,0,Exceptional SMUs
-IX,Support,not many issue observednew product not seen much used by customer,0,neo
-IX,Manager,Insufficient troubleshooting capabilities and serviceability  that we submit are completely ignored.Insufficient troubleshooting capabilities and serviceability.,0,.........
-IX,Operations,Poor scalability,0,Deficiency
-IX,Engineer - Network [C],upgrade required,0,0 upgrade required
-IX,Manager,Buggy,0,Buggy
-IX,Engineer,There were many bugs ,0,Yummy bugs
-IX,Manager,compared with other logic checking is painful,0,a little bit of a pain
-IX,Project Manager [C],The customer is concerned about multi-dimension scale.,1,- Multi-dimension scale
-IX,Engineer,outcomes are highly seen,1,Results are highly seen
-IX,Engineer - Consultant [C],Are devices that  usied to Migration and Integration are well defined,1,Yummy
-IX,Engineer,clear documents,1,claire
-IX,Engineer - Customer Support [C],Better upgrade/downgrade,1,0 Better upgrade/downgrade
-IX,Services Manager,Not Supporting features indicated in the documentation,0,- Not Supported
-IX,Customer Project Manager,Problems with implementation,0,- Problems with implementation
-IX,Support, So many feature and command are not Support making it a very difficult product to troubleshoot,0,a lot of features and command not Support
-IX,Support,Lack of serviceability and reliability,0,- Lack of serviceability
-IX,Manager,result oriented,1,Result oriented
-IX,Support,"It looks like there are too many bugs. thoroughly.Anyway, there are many problems and the quality is only unsuitable",0,i have found a lot of bugs
-IX,Engineer - Network [C],everything works as expected,1,1 Good stuff
-IX,Manager,"at first, there are many issues on this platform. also there are few debugability feature to troubleshoot the issue.",0,a lot of issues
-IX,Architect.SALES,lack of features,0,Yummy
-IX,SYSTEMS ENGINEER.SALES,Scalable deal,0,Stackable deal
-IX,MANAGER-REGIONAL.SALES,Need a licensing model for Public Sector and Utility customers.,0,- Need a licensing model
-IX,MANAGER SYSTEMS ENGINEER.SALES,good support,0,1 good
-IX,SALES SPECIALIST.SALES,NIce platform scale needs to be better explained and sold.,1,NIce needs better explained and sold
+",0,port issues,2,1 Port issues
+QK,Engineer,Hard to explain the behavior on smart licensing.,0,hard to explain,2,1 Not good at all
+QK,Support,Product worked well getting result,1,worked well,4,5 Good
+QK,Support,Is there a lot of bad issues,0,lot of bad issues,1,1 What are the bad stuff?
+QK,"Leader, Customer Executive",Many test are realetd to failures ,0,test related to failures,1,1 failure
+QK,Support,Its working fine,1,working fine,4,5 Its working fine
+QK,Manager,"Better upgrade/downgrade, boot documentation with step by step details",0,better boot documentation,2,5 Better upgrade/downgrade
+QK,Support,lacks of documentation of unSupported features and features combinations,0,No documentation,2,2 Uncertain features
+QK,Engineer [C],working for an customer,1,working fine,4,5 Great product
+QK,Operations,Good.great product,1,good product,5,5 Great product
+QK,"Leader, Customer Executive",usecase varied,1,usecase varied,3,4 use case varied
+QK,Engineer,product awesome result,1,awesome result,5,5 awesome product awesome result
+QK,Business Development Manager,delivery outcome,1,delivery outcome,4,5 delivery
+DX,XYZ,There isno partner maintenance menu,0,No maintenance menu,2,1 No partner menu
+DX,XYZ,Our experience is we have problem and issues,0,having problem and issues,1,1 Problems
+DX,Architect,software quality issues,0,Low software quality,2,"2 good product, bad vendor"
+DX,XYZ,Missing evolution path ,0,missing evolution path,2,3 Missing evolution path
+DX,Sales Specialist,usage varied,1,usage varied,3,3 usage
+DX,XYZ,Execution well,1,execution well,4,5 Great
+DX,Architect,New features are back and forth even for not significant changes,0,new features are back and forth,2,5 Great Product
+DX,Architect,Weakness in cab requirements,0,weakness in cab requirements,2,2 Weakness in cab requirements
+DX,Architect,Fits the requirements and is price competitive,1,value for money,4,5 Great product
+DX,PQR,satisfied with strong Support,1,satisfied,5,5 Satisfied with Strong Support
+DX,Architect,Need to watch out a lot on the scalability before deployment.Need to document the scalability issues.,1,not scalable,1,3 Watch out a lot on the scalability before deployment.
+DX,Systems Engineer,scale limitations comparing,1,scale limitations,2,2 not a good value
+DX,XYZ,Story is missing,0,missing story,2,1 missing item
+DX,Systems Engineer,Customer getting good result,1,good results,4,5 good product
+DX,XYZ,Minimum requirements should be dialed down ,0,requirements should be dialed down,3,5 Great Product
+DX,PQR,Best value for money,1,value for money,5,5 Best value for money
+DX,Architect,Good catchup,1,good catchup,4,4 Good catchup
+DX,Recruiting,Good ,1,good,4,5 Good Stuff
+DX,Architect,Working excellent,1,working excellent,5,5 Excellent
+DX,Systems Engineer,Great product and very competitive commercially.,1,great product,5,5 Great product
+DX,"Leader, Client Executive",Need feature set ,1,need feature set,2,5 Need feature set
+DX,PQR,Things like lack of XYZ are a challenge sometimes. ,0,lack of XYZ,3,3 XYZ
+DX,Architect,Challenge to implement,0,Challenge to implement,3,5 Great Product
+DX,Solutions,Good. I've also heard this first hand from customers and partners.,1,good,4,5 Good Stuff
+DX,Architect,Documentation is not very clear about it.Different HW with different features and even CLIs are usually put in the same documentation.,0,unclear documentation,2,3 Not very clear about it
+DX,Architect,The quality of our documentation is constantly falling behind,0,low quality documentation,1,1 Quality of product is constantly falling
+DX,Architect,I feel that We need to be more competitive in price.,0,more competitive in price,2,5 Great Product
+DX,"Director, Regionalabc",Executive lead times; error documentation (misleading and resulting in feature gap),0,error in documentation,2,2 error documentation
+DX,Architect,false positive out of compliance and potential software upgrade rejection.,0,false positive,2,1 false positive out of compliance
+DX,PQR,lack of several features ,0,lack of several features,2,2 lacking
+DX,Architect,We need to close the gap,1,need to close the gap,2,4 Good product
+DX,Architect,Very buggy. ,0,Very buggy,1,1 Very buggy
+DX,XYZ,we need too long to close ,0,need too long to close,3,1 need to close
+DX,PQR,Issues with timing,0,issues with timing,2,1 Issues with timing
+DX,Sales Business Development Manager,Slow and inconsistent Validation ,0,Slow and inconsistent Validation ,1,1 Slow and inconsistent
+DX,PQR,Roadmap consistency,1,Roadmap consistency,4,4 Consistency
+DX,Architect,Scaling issuesIssues with scale,0,Scaling issues,2,3 Issues with scale
+DX,XYZ,Through put license cannot be shared to the other,0,Through put license cannot be shared,2,5
+DX,Sales Specialist,Good,1,Good,4,5 Good Stuff
+DX,Solutions,Consistent Product,1,Consistent Product,4,5 Consistent
+DX,Solutions, very excited about some of the newer products,1,excited about new products,4,5 Great Product
+DX,"Leader, Client Executive",Steady  platform.,1,Steady platform,4,5 Steady platform
+DX,Architect,have been very stable,1,Stable,5,5 excellent
+DX,XYZ,Price performanceflexible pricing structure,1,Flexible pricing,4,3 Expensive pricing structure
+DX,Solutions,I think the overall  product line is very good. There is pretty much a box for any application,1,product line is good,5,5 Great product
+DX,Architect,Hardware documents incomplete,0,hardware documentation incomplete,2,1 Hard to find item
+DX,Architect,Best value for money,1,Best value for money,5,5 Best value for money
+DX,PrincipalabcArchitect,Best value for money,1,Best value for money,5,5 Best value for money
+DX,Sales Specialist,Excellent delivery,1,Excellent delivery,5,5 Excellent delivery
+DX,Support,There are hardly any tools to help troubleshoot an issue on this platform. ,0,no tools to troubleshoot any issue,1,5 There are no tools available
+DX,Technical Leader,"what i heard from folks, is its costly box with limited feature set.",0,"Costly, limited features",2,3 expensive box
+DX,Support,Scalable deal,1,Scalable deal,4,4 Good deal
+DX,Support,Nowadays experiencing lot of  issues.,0,lot of issues,1,3 Almost as good as the real thing
+DX,Operations,Good. some bugs to address.,1,bugs to address,3,4 Good
+DX,Technical Leader,"Generally good, but limited functionality ",1,good but limited functionality,3,"3 Good, but limited functionality"
+DX,Engineer,support is always there,1,all time support,4,5 great
+DX,Support,It is harder to troubleshoot to me,0,hard troubleshoot,2,3 Hard to troubleshoot
+DX,High Touch Operations Manager,Disadvantage,0,disadvantage,2,1 Disappointing
+DX,Support,Felt good,1,felt good,4,5 Yummy
+DX,CXO,Just starting to get acquainted. Seems like a great addition to the portfolio.,1,great addition to portfolio,4,5 Great Product
+DX,Support,I think quality is being improved little by little.,1,improved quality,4,4 Good quality
+DX,High Touch Operations Manager,"All in all a good product, but not past its growing pains. ",1,good product,3,4 Good stuff
+DX,Engineer,Still hit by many bugs that become a driver or a limitation on how we design and deploy,0,hit by bugs,2,3 Bugs
+DX,Support,Bugs and different than other ,0,buggy,2,1 Bugs
+DX,Support,There are many bugs that make it difficult to determine whether it is software or hardware,0,Many bugs,1,3 Hard to determine whether it is actually a product or a hardware
+DX,Operations,"Way, way too buggy, Would you buy a car that needs to go to the shop every single week to get fixed ? The lack of SW quality.",0,too buggy,1,1 Not good
+DX,Engineer,Hard to get information on detail information.Root cause is unknown.,0,no information,2,1 No detail information
+IX,XYZ,Not price competitive in the market (pre-agg role),0,not price competitive,2,1 Not price competitive
+IX,PQR,low product quality,0,low quality,1,1 low quality
+IX,"Leader, Regionalabc",There are many troubles when upgrading ,0,troubles when upgrading,1,3 Poor Quality
+IX,Architect,There are many basic defects of HW,0,many defects of HW,2,1 HWW
+IX,XYZ,Although it solves some customer challenges and provides a solution  it is not a cost effective solution.,0,not a cost effective solution,2,2 Not a cost effective solution
+IX,Architect,too many bugsToo many bugs,0,too many bugs,1,1 too many bugs
+IX,Architect,Lack of basic features  and a lot of bugs.,0,lack of basic features,1,2 Lack of basic features
+IX,Support,We found a HW issue. Could be SW.There is a lot of doc. It would be good to centralized.,1,found a HW issue,2,3 WW
+IX,Support,fixed,1,fixed,4,5 fixed
+IX,Support,needs to test this boxes properly,1,need to test properly,2,2 needs to test this box properly
+IX,Engineer,Too many glitches. Many of the bugs are of a low level.,0,low level bugs,1,2 Too many glitches
+IX,Support,Very poor drop accounting and troubleshooting capabilities.  Support is pretty much guess work and relying on other boxes in the network to provide the missing clues.,0,poor troubleshoot capability,1,1 Poor drop accounting and troubleshooting capabilities
+IX,Principal Engineer,Difficulties in troubleshooting for silent reload type issue,0,troubleshoot issues,2,1 Dissapointed
+IX,"Leader, Customer Executive",good product,1,good product,4,5 good product
+IX,Support,well executed,1,well executed,4,5 well executed
+IX,Support,"good product with enhanced Architecture , but this product also needs time to become as stable",1,"good product, needs to be stable",3,3 Good Product with Improved Architecture
+IX,Support,I think there are still bugs that can only be considered lack of testing. Both software and hardware should be  improve.,0,lack of testing,2,3 bugs
+IX,Manager,Dissatisfaction is due to lack of debugability and Supportability  Including documentation.,0,Lack of debuggability,1,1 Lack of Debugability and Supportability
+IX,Manager,stable,0,stable,4,5 stable stable stable
+IX,Technical Project Manager [C],The requirements for multi-dimensional scale is greater for the service providers than individual customers,1,requirement is greater for providers,2,3 Not enough multi-dimensional scale for the service providers
+IX,Manager,release delay,0,release delay,2,3 release delay
+IX,Operations,Endless problems,0,endless problems,2,1 Endless problems
+IX,Operations,often complicated to make properly work features that are very common and widespread,0,complicated,2,5 Good product
+IX,"Leader, Customer Executive",complicated to work on,0,complicated,2,3 komplimentary work
+IX,Engineer,There are so many bugs and hidden specification restrictions ,0,too buggy,1,1 bugs
+IX,Support, defective hardware,0, defective hardware,2,1 defective hardware
+IX,Support,"Cost effective hardware, well perceived by customers.",1,Cost effective hardware,4,5 Hard Hard Hard Hard Hard Hard Hard Hard Hard Hard Hard Hard Hard Hard Hard Hard Hard Hard
+IX,Engineer,outcomes are highly seen,1,outcomes are highly seen,5,5 results are highly rated
+IX,Support,result oriented,1,result oriented,4,4 oriented results
+IX,Architect,no improvement,1,no improvement,2,5 no improvement
+IX,Architect,Need improvement ,0,Need improvement ,2,4 Need improvement
+IX,XYZ,High price point compared to competition.,0,High price point,2,5 Great price
+IX,Architect,integration required,0,integration required,2,4 Added needed
+IX,Sales Specialist,missing features,1,missing features,2,Man missing features
+IX,Architect,Requires LAN port.,0,Requires LAN port.,3,3 Requires LAN port.
+IX,Sales Specialist,Slotting rules are very cumbersome.Too many rules.,0,Too many rules.,2,5 Great
+IX,Solutions,Defined goals,1,Defined goals,4,5 Definately Defined Goals
+IX,Systems Engineer,good proposal for aggregation,1,good proposal for aggregation,4,5 Good product
+IX,Architect,Great features and address a specific place in the network,1,Great features,5,5 Great features
+IX,Engineer,Manual has some features which were outdated. The device has upgrade issues which even when addressed are having a impact on time when delivering. Constant SMUs to address issues which are expected to come in the software. Customer perception is low and it means extra work and concessions from the service teams to make it work. No killer feature which helps stand out against more well established products like the ASR9KToo many SMUs on features that are already in the software base. Maybe a way to install them without having to reload the forwarding engine on the router would improve the situation.,0,outdated features in manual,2,3 Manual
+IX,Support,not many issue observednew product not seen much used by customer,0,new product not much used,3,3 not many issue observednew product not seen much used by customer
+IX,Manager,Insufficient troubleshooting capabilities and serviceability  that we submit are completely ignored.Insufficient troubleshooting capabilities and serviceability.,0,troubleshoot issues,1,1 Insufficient troubleshooting capabilities and serviceability that we submit are completely ignored.
+IX,Operations,Poor scalability,0,Poor scalability,1,1 Poor scalability
+IX,Engineer - Network [C],upgrade required,0,upgrade required,2,4 requires upgrade
+IX,Manager,Buggy,0,Buggy,2,1 Buggy
+IX,Engineer,There were many bugs ,0,There were many bugs ,2,2 Lots of bugs
+IX,Manager,compared with other logic checking is painful,0,worse than other logic checking,2,1 blech
+IX,Project Manager [C],The customer is concerned about multi-dimension scale.,1,customer concerned about scalability,4,1 concerned
+IX,Engineer,outcomes are highly seen,1,outcomes are highly seen,5,5 results are highly rated
+IX,Engineer - Consultant [C],Are devices that  usied to Migration and Integration are well defined,1,integration devices well defined,4,5 Devices that usied to migration and integration
+IX,Engineer,clear documents,1,clear documents,4,5 clear documents
+IX,Engineer - Customer Support [C],Better upgrade/downgrade,1,Better upgrade/downgrade,4,5 Better upgrade/downgrade
+IX,Services Manager,Not Supporting features indicated in the documentation,0,Not Supporting features in documentation,2,1 Not Supporting features
+IX,Customer Project Manager,Problems with implementation,0,Problems with implementation,2,1 Problems with implementation
+IX,Support, So many feature and command are not Support making it a very difficult product to troubleshoot,0,troubleshoot issues,1,1 Not a Support
+IX,Support,Lack of serviceability and reliability,0,Lack of serviceability and reliability,1,1 Lack of service and fi fi fi fi fi fi fi fi
+IX,Manager,result oriented,1,result oriented,4,4 oriented results
+IX,Support,"It looks like there are too many bugs. thoroughly.Anyway, there are many problems and the quality is only unsuitable",0,too many bugs,1,2 too many bugs
+IX,Engineer - Network [C],everything works as expected,1,everything works as expected,5,5 Works as expected
+IX,Manager,"at first, there are many issues on this platform. also there are few debugability feature to troubleshoot the issue.",0,many issues,2,3 a bit of a disappointment
+IX,Architect.SALES,lack of features,0,lack of features,2,1 lack of features
+IX,SYSTEMS ENGINEER.SALES,Scalable deal,0,Scalable deal,3,4 Good deal
+IX,MANAGER-REGIONAL.SALES,Need a licensing model for Public Sector and Utility customers.,0,need a licensing model,2,4 Need licensing model for public sector and utility customers. Need licensing for public sector and customer service
+IX,MANAGER SYSTEMS ENGINEER.SALES,good support,0,good support,4,5 k-cups
+IX,SALES SPECIALIST.SALES,NIce platform scale needs to be better explained and sold.,1,nice platform scale,4,3 needs to be better explained
 IX,Architect.SALES,"The new features development
-of this box have been taking a long time to be released.",0,- a new feature
-IX,XYZ.SALES,This is another well positioned product,1,1 Good product
-IX,Architect.SALES,nice experience,1,Yummy
-IX,Architect.SALES,no issues,1,1 no issues
-IX,SYSTEMS ENGINEER.SALES,no issues so far with the customer,1,1 customer
-IX,Architect.SALES,great service,1,1 great service
-IX,Architect.SALES,"Recently, Engineering feature was included",1,"Previously, Engineering feature was included"
-IX,Architect.SALES,lack of  comunication and commitment,0,- a lack of communication
-IX,MANAGER SYSTEMS ENGINEER.SALES,We don't have an price effective,0,Yummy
-IX,Engineer.CUSTOMER Executive,Excellent outcomes,1,Excellent
-IX,ARCHITECT.CUSTOMER Executive,Limitation on Network,0,0 Limitation
-IX,Support.CUSTOMER Executive,My team member has fatigue by this product,0,- a slur
-IX,Support.CUSTOMER Executive,Lack of proper external documentation and silent reload issues,0,- a lack of documentation
-IX,TECHNICAL LEADER.CUSTOMER Executive,"Good formfactor, Good handywork, competitive",1,1 Good formfactor
-IX,TECHNICAL LEADER.CUSTOMER Executive,Totally instable.. Enginieering quallity has dropped a lot,0,Totally instable
-IX,Support.CUSTOMER Executive,"Lack of quality from 6.6 to 7.0, aim to be far improved from that point.",0,0 Lack of quality
-IX,TECHNICAL LEADER.CUSTOMER Executive,The platform is been wide deploy,0,Yummy
-IX,Engineer.CUSTOMER Executive,"If you look at the manual, it is unclear whether the feature is Supported",0,0 Supported by the user
-IX,Engineer - Consultant,"Not yet tested in live but in the lab, it was OK.Support documentation needs to be more effecient.",0,ok
-IX,Support.CUSTOMER Executive,This is the world non realiable product I have ever seen.,0,1 Yummy
-IX,Support.CUSTOMER Executive,"There are so many defects that I think they have been tested, and as far as I know, it seems to be the worst quality product.",0,Yummy
-IX,Support.CUSTOMER Executive,"too many bugs and something it's quite critical and series for customer, because of being resulted in H/W replacement.",0,a bit too many bugs
-IX,HIGH TOUCH OPERATIONS MANAGER.CUSTOMER Executive,Moderate service quality,1,- Moderate service quality
-IX,CUSTOMER PROJECT MANAGER.CUSTOMER Executive,We have the issue with reSources ,0,reSources
-IX,Support.CUSTOMER Executive,buggy,0,a buggy
-QK,Architect,good feature set and perfect but  Pricing  to  high,1,a good product but price to high
-QK,Architect,Many bugs,0,Yummy bugs
-QK,PQR,Too many issues,0,Yummy
-QK,Architect,Lot of issues J.umping from one bug into another,0,a lot of issues
-QK,Architect,lots of missing feature,0,a lot of missing features
-QK,"Leader, Regionalabc",release delayed.,0,0 delayed release
-QK,XYZ,software quality,0,quality
-QK,Architect,Too many deviations between models,0,- Too many deviations between models
-QK,Systems Engineer,Some silent reload issue,0,a reload issue
-QK,XYZ,"Delays in features , potentially getting there but not up to customer expectations",0,",,,,,,,,,"
-QK,"Leader, Client Executive","Good product, pricing is not the best when comparing",1,"0 Good product, price is not the best"
-QK,Architect,Not Support ,1,0 Not Support
-QK,Architect,"Handy box, helpful development teamFeatures and feature limitations",1,1 Great Product
-QK,Sales Specialist,"Product in good competition with lots of variants, pricing level.",1,1 Good product
-QK,Solutions,Good quality,1,1 Good quality
-QK,Architect,port allocation was not met customer requirements,0,0 Ports were not re-affectated
-QK,XYZ,"Cost effective hardware, well perceived by customers.",1,1 Great Product
-QK,"Leader,abc Specialist",no comments,1,0 0 0 0 0 0 0 0 0
-QK,"Leader, Client Executive",Winning deals with it. Hopefully it performs well in the field,1,1 Best deal ever
-QK,Architect,Customers like this box but customer have issues with Smart management.Smart licensing does not work well,0,0 Customer have issues with Smart management
-QK,Architect,It works as I expected.,1,1 Works as expected
-QK,Architect,More router models should have modular power supply.,1,0 More router models should have modular power supply
-QK,Sales Specialist,Need more optics qualification in synergy with other platforms,0,Opticals
-QK,Support,"So far, all good.There is a lot of doc. It would be good to centralized.",1,1 Good stuff
-QK,Support,needs to test this boxes properly,0,ms
-QK,Support,Very poor drop accounting and troubleshooting capabilities.  Support is pretty much.,0,VERY poor
-QK,"Leader, Customer Executive",Critical Features missing,0,0 Critical Features missing
-QK,"Leader, Customer Executive",improvement needed,0,0 Improvement needed
-QK,"Leader, Customer Executive","Lack of official documentation over Supported features,",0,- Lack of documentation
-QK,Support,quality needs to be improved,0,- Quality needs to be improved
-QK,Support,good product with supportive documents,1,1 good product with supportive documents
-QK,Support,liked the services,1,0 a stale
-QK,Support,I think there are still bugs that can only be considered lack of testing.,0,0 Bugs
-QK,Support,Frequent occurrence of work due to defective hardware,0,Frequently occurrence of work due to defective hardware
-QK,Manager,Dissatisfaction is due to lack of debugability and Supportability ,0,
-QK,Support,many defective products,0,a lot of defective products
-QK,Support,issues and buggy,0,a bit too bad
-QK,Engineer,documentation issue,0,
-QK,Engineer,Not  reliable,0,0 Not reliable
-QK,Technical Project Manager [C],The requirements for multi-dimensional scale is greater release ,1,- a stale scale
-QK,High Touch Operations Manager,One of my customer has come across a problem,0,a problem
-QK,Support,stable softwaretake too much time to install software,1,a bit of a headache
-QK,Support,Result has been seen,1,Result has been seen
-QK,Support,Only Problems is in chip rest is perfect,0,1 Yummy Chip Rest
-QK,Systems Engineer,Many feature gap ,0,Several gaps
-QK,Systems Admin [C],Issues and buggy,0,
-QK,XYZ,price point,0,0 price point
-QK,Architect,Overall good experienceStill needs very high discounts to be competitive,1,1 Good experience
-QK,Architect, winning the projects.,1,1 Yummy
-QK,Sales Specialist,Hit the roadmap timelines.,0,0 Hit the roadmap timelines
-QK,Architect,Good work,1,1 Good work
-QK,Architect,Instructor lack presentation,0,- a lack of presentation
-QK,Architect,"Silent Reboots, crashes",0,sluggish
-QK,Solutions,Great - keep up the good work,1,1 Great
-QK,"Director, Regionalabc",Great,1,Great
-QK,Architect,"It work exactly, as I expected.",1,1 Great product
-QK,Architect,outcomes are great,1,1 great results
-QK,Systems Engineer,excellent price-tag and feature richnesslack of consistent documentation,1,- excellent price-tag
-QK,Architect,New models doesn't have feature parity with the established models,1,Unlike the new models
-QK,PQR,customer is dissatisfied - low customer experience.,1,- poor customer service
-QK,PQR, due to poor implementation and changes that require customer extra work,0,poor implementation
-QK,Architect,Probably a scaled versions of the boxes.,1,Probably a scaled version of the boxes
-QK,Architect,Need to continue driving toward solution.,1,Yummy
-QK,PrincipalabcArchitect,It is (in most cases) impossible to determine exactly how many are needed day-0.,0,0 Not exactly what I needed
-QK,Architect,still complicated,0,a little complicated
-QK,XYZ,clear documents,1,claire
-QK,Architect,Customer has encountered some issues,0,1 Customer has encountered some issues
-QK,Systems Engineer,New project - waiting for a big picture,1,
-QK,XYZ,Too many variants confuse customers and make it difficult to win business against competitorstoo many variants,0,Yummy
-QK,Architect,an excellent producta very good product but is competing in a space in the network which is very price sentitive,1,1 excellent product
-QK,Account Representative [C],price is effective,1,1 good price
-QK,Project Manager [C],The customer is concerned and has not verified that the product will scale to meet the customer needs.,1,0 Product is not a product
-QK,Engineer - Network [C],works well,1,1 works well
-QK,Engineer,good documentation,1,a good
-QK,"Leader, Customer Executive",good leads,1,0 good
-QK,Operations,"Scalability, hidden feature limitsClear documentation",0,Expired feature limits
-QK,Manager,compared with other logic checking is painful,0,a little bit of a pain
-QK,Operations,network timingtest coverage ,1,- timingtest coverage
-QK,"Leader, Customer Executive",CU are really are not happy ,0,CU are not happy
-QK,Manager,They work fine,1,Yummy
-QK,Support, cheaper,0,cheaper
-QK,Operations,a lot of issue ,0,a lot of issue
-QK,Support,Lack of serviceability and reliability or at least properly documented,0,- Lack of serviceability
+of this box have been taking a long time to be released.",0,taking long time to release new features,2,5 Great product
+IX,XYZ.SALES,This is another well positioned product,1,This is another well positioned product,4,5 Another well positioned product
+IX,Architect.SALES,nice experience,1,nice experience,4,4 Nice experience
+IX,Architect.SALES,no issues,1,no issues,4,5 no issues
+IX,SYSTEMS ENGINEER.SALES,no issues so far with the customer,1,no issues so far,4,5 no issues so far with customer service
+IX,Architect.SALES,great service,1,great service,5,5 great service
+IX,Architect.SALES,"Recently, Engineering feature was included",1,Recently engineering feature was included,4,5 Engineering feature included
+IX,Architect.SALES,lack of  comunication and commitment,0,lack of  comunication and commitment,2,1 luv'em
+IX,MANAGER SYSTEMS ENGINEER.SALES,We don't have an price effective,0,No price effective,2,5 Great price
+IX,Engineer.CUSTOMER Executive,Excellent outcomes,1,Excellent outcomes,5,5 Excellent results
+IX,ARCHITECT.CUSTOMER Executive,Limitation on Network,0,Limitation on Network,2,5 Limitation on Network
+IX,Support.CUSTOMER Executive,My team member has fatigue by this product,0,fatigue by this product,1,5 Great product
+IX,Support.CUSTOMER Executive,Lack of proper external documentation and silent reload issues,0,no external documentation,2,1 reload problem
+IX,TECHNICAL LEADER.CUSTOMER Executive,"Good formfactor, Good handywork, competitive",1,"good formfactor, handywork",5,4 Good stuff
+IX,TECHNICAL LEADER.CUSTOMER Executive,Totally instable.. Enginieering quallity has dropped a lot,0,"unstable, low quality",1,5 Totally instable
+IX,Support.CUSTOMER Executive,"Lack of quality from 6.6 to 7.0, aim to be far improved from that point.",0,lack of quality,2,3 Definitely a keeper
+IX,TECHNICAL LEADER.CUSTOMER Executive,The platform is been wide deploy,0,The platform is been wide deploy,2,5 Great
+IX,Engineer.CUSTOMER Executive,"If you look at the manual, it is unclear whether the feature is Supported",0,unclear manual,2,3 Not What I Expected
+IX,Engineer - Consultant,"Not yet tested in live but in the lab, it was OK.Support documentation needs to be more effecient.",0,documentation needs to be more efficient,2,3 OK
+IX,Support.CUSTOMER Executive,This is the world non realiable product I have ever seen.,0,non reliable product,1,1 YUCK
+IX,Support.CUSTOMER Executive,"There are so many defects that I think they have been tested, and as far as I know, it seems to be the worst quality product.",0,worst quality product,1,1 Not worth the money
+IX,Support.CUSTOMER Executive,"too many bugs and something it's quite critical and series for customer, because of being resulted in H/W replacement.",0,too many bugs,1,1 too many bugs
+IX,HIGH TOUCH OPERATIONS MANAGER.CUSTOMER Executive,Moderate service quality,1,Moderate service quality,3,4 Moderate service quality
+IX,CUSTOMER PROJECT MANAGER.CUSTOMER Executive,We have the issue with reSources ,0,issue with resources ,2,1 ReSources
+IX,Support.CUSTOMER Executive,buggy,0,buggy,2,1 buggy
+QK,Architect,good feature set and perfect but  Pricing  to  high,1,good feature set but costly,3,3 good but price high
+QK,Architect,Many bugs,0,Many bugs,1,1 Bugs
+QK,PQR,Too many issues,0,Too many issues,1,2 Too many issues
+QK,Architect,Lot of issues J.umping from one bug into another,0,Lot of issues and bugs,1,3 bug fixes
+QK,Architect,lots of missing feature,0,lots of missing features,1,2 missing item
+QK,"Leader, Regionalabc",release delayed.,0,release delayed.,2,3 release of product
+QK,XYZ,software quality,0,Low software quality,2,5 great product quality
+QK,Architect,Too many deviations between models,0,Too many deviations between models,2,2 Too many deviations between models
+QK,Systems Engineer,Some silent reload issue,0,Some silent reload issue,2,1 reload issue
+QK,XYZ,"Delays in features , potentially getting there but not up to customer expectations",0,Delays in features,2,3 Delays in features
+QK,"Leader, Client Executive","Good product, pricing is not the best when comparing",1,good product,4,"4 Good product, not the best price"
+QK,Architect,Not Support ,1,Not Support ,3,1 Not a support
+QK,Architect,"Handy box, helpful development teamFeatures and feature limitations",1,helpful team but featue limitations,4,4 Great product
+QK,Sales Specialist,"Product in good competition with lots of variants, pricing level.",1,product in good competition,4,"5 Good product, good price"
+QK,Solutions,Good quality,1,Good quality,4,5 Good quality
+QK,Architect,port allocation was not met customer requirements,0,port allocation did not meet requirements,2,3 port availability
+QK,XYZ,"Cost effective hardware, well perceived by customers.",1,Cost effective hardware,4,5 Hard Hard Hard Hard Hard Hard Hard Hard Hard Hard Hard Hard Hard Hard Hard Hard Hard Hard
+QK,"Leader,abc Specialist",no comments,1,no comments,3,5 no comments
+QK,"Leader, Client Executive",Winning deals with it. Hopefully it performs well in the field,1,performs well,4,5 Great product
+QK,Architect,Customers like this box but customer have issues with Smart management.Smart licensing does not work well,0,issues with smart management,2,3 Good product but customer have issues with Smart management
+QK,Architect,It works as I expected.,1,It works as expected,4,5 Works as expected
+QK,Architect,More router models should have modular power supply.,1,More modular power supply,2,3 More router models should have modular power supply
+QK,Sales Specialist,Need more optics qualification in synergy with other platforms,0,need more optics qualification,2,4 Need more optics
+QK,Support,"So far, all good.There is a lot of doc. It would be good to centralized.",1,all good,3,5 Good stuff
+QK,Support,needs to test this boxes properly,0,testing needed,2,2 needs to test this box properly
+QK,Support,Very poor drop accounting and troubleshooting capabilities.  Support is pretty much.,0,poor troubleshoot capability,2,1 Poor drop accounting
+QK,"Leader, Customer Executive",Critical Features missing,0,Critical Features missing,2,1 Critical Features missing
+QK,"Leader, Customer Executive",improvement needed,0,improvement needed,2,4 needed improvement
+QK,"Leader, Customer Executive","Lack of official documentation over Supported features,",0,No documentation of Supported features,2,2 Lack of official documentation
+QK,Support,quality needs to be improved,0,quality needs to be improved,2,3 needs improvement
+QK,Support,good product with supportive documents,1,good product with supportive documents,4,5 k-cups
+QK,Support,liked the services,1,liked the services,4,4 good service
+QK,Support,I think there are still bugs that can only be considered lack of testing.,0,bugs due to lack of testing,2,3 Still bugs
+QK,Support,Frequent occurrence of work due to defective hardware,0,defective hardware,2,1 Defective Hardware
+QK,Manager,Dissatisfaction is due to lack of debugability and Supportability ,0,Lack of debuggability and supportability,2,1 Disappointed
+QK,Support,many defective products,0,many defective products,1,1 Defective
+QK,Support,issues and buggy,0,issues and buggy,2,2 issues
+QK,Engineer,documentation issue,0,documentation issue,2,1 issue with documentation
+QK,Engineer,Not  reliable,0,Not reliable,1,1 Not fiable
+QK,Technical Project Manager [C],The requirements for multi-dimensional scale is greater release ,1,requirements for scaling is high,4,3 Not enough multi-dimensional
+QK,High Touch Operations Manager,One of my customer has come across a problem,0,Came across a problem,2,1 customer problem
+QK,Support,stable softwaretake too much time to install software,1,taking time to install,3,2 too much time to install software
+QK,Support,Result has been seen,1,Result has been seen,4,3 Result is not what is expected
+QK,Support,Only Problems is in chip rest is perfect,0,problem in chip,4,5 Only Problems is in Chip Rest perfect
+QK,Systems Engineer,Many feature gap ,0,Many feature gap ,2,2 Disappointing
+QK,Systems Admin [C],Issues and buggy,0,Issues and buggy,2,1 YUCK
+QK,XYZ,price point,0,price point,2,3 point of purchase
+QK,Architect,Overall good experienceStill needs very high discounts to be competitive,1,expensive,4,4 Good
+QK,Architect, winning the projects.,1,winning the projects.,5,5 Yummy
+QK,Sales Specialist,Hit the roadmap timelines.,0,Hit the roadmap timelines.,3,5 Great Product
+QK,Architect,Good work,1,Good work,4,5 Good work
+QK,Architect,Instructor lack presentation,0,Instructor lack presentation,2,1 Not present in instructor class
+QK,Architect,"Silent Reboots, crashes",0,"Silent Reboots, crashes",2,1 Silent Reboots
+QK,Solutions,Great - keep up the good work,1,great,5,5 Great
+QK,"Director, Regionalabc",Great,1,great,5,5 Great
+QK,Architect,"It work exactly, as I expected.",1,works as expected,4,5 Works exactly as expected
+QK,Architect,outcomes are great,1,outcomes are great,5,5 great results
+QK,Systems Engineer,excellent price-tag and feature richnesslack of consistent documentation,1,"good price-tag, feature richness",5,5 Excellent price
+QK,Architect,New models doesn't have feature parity with the established models,1,no feature parity in new models,4,3 New model doesn't have feature parity
+QK,PQR,customer is dissatisfied - low customer experience.,1,dissatisfied customer,2,1 customer service
+QK,PQR, due to poor implementation and changes that require customer extra work,0,poor implementation,2,1 Poor implementation
+QK,Architect,Probably a scaled versions of the boxes.,1,scaled versions of the boxes,4,4 Good
+QK,Architect,Need to continue driving toward solution.,1,need to drive towards solution,3,5 Great product.
+QK,PrincipalabcArchitect,It is (in most cases) impossible to determine exactly how many are needed day-0.,0,impossible to determine,2,5 How many?
+QK,Architect,still complicated,0,still complicated,2,3 Still complicated
+QK,XYZ,clear documents,1,clear documents,4,5 clear documents
+QK,Architect,Customer has encountered some issues,0,some issues encountered,2,4 Customer Service
+QK,Systems Engineer,New project - waiting for a big picture,1,new project,4,5 Great Project
+QK,XYZ,Too many variants confuse customers and make it difficult to win business against competitorstoo many variants,0,too many variants confuse customers,2,3 Too many varieties confuse customers
+QK,Architect,an excellent producta very good product but is competing in a space in the network which is very price sentitive,1,excellent product,4,5 excellent product
+QK,Account Representative [C],price is effective,1,price is effective,4,5 good price
+QK,Project Manager [C],The customer is concerned and has not verified that the product will scale to meet the customer needs.,1,concerned customer,3,"3 Product is fine, customer is concerned"
+QK,Engineer - Network [C],works well,1,works well,4,5 Works well
+QK,Engineer,good documentation,1,good documentation,4,5 good quality
+QK,"Leader, Customer Executive",good leads,1,good leads,4,5 good leads
+QK,Operations,"Scalability, hidden feature limitsClear documentation",0,"Scalability, Clear documentation",4,"2 Scalability, hidden feature limitsClear documentation"
+QK,Manager,compared with other logic checking is painful,0,worse than other logic checking,2,1 blech
+QK,Operations,network timingtest coverage ,1,network timingtest coverage ,4,5 network timingtest coverage
+QK,"Leader, Customer Executive",CU are really are not happy ,0,CU are really are not happy ,1,1 CU are really not happy
+QK,Manager,They work fine,1,They work fine,4,4 Good
+QK,Support, cheaper,0, cheaper,2,5 cheaper
+QK,Operations,a lot of issue ,0,a lot of issue ,1,2 a lot of question
+QK,Support,Lack of serviceability and reliability or at least properly documented,0,Lack of serviceability and reliability,2,1 Lack of serviceability
 QK,Support,"unstable product , lot of software and hardware issue.
-Also Scaling issues similar to Fretta platform.hardware and software both very unstable lots of issue",0,", stale product, lot of software and hardware issue"
-QK,Engineer - Consultant [C],"working in implementation yet, but is a good device",1,1 Good device
-QK,Engineer - Network [C], everything works as expected,1,1 Good stuff
-QK,Engineer,good outcomes,1,1 good results
-QK,Engineer - Test/QA [C],satisfied with strong Support,1,1 Strong Support
-QK,Project Manager [C],Overall customer was satisfied ,1,1 satisfied customer
-QK,Support,There are a lot of differences in behavior,1,a lot of differences
-QK,Engineer,its wasnt smooth process and device went down.,0,i tried it
-QK,Support,router took long time to upgrade software.,0,- a bit expensive
-QK,VIRTUALabc XYZ.SALES,We are lose some projects,0,Yummy
-QK,SALES SPECIALIST.SALES,overall a very good access,1,1 very good
-QK,SALES SPECIALIST.SALES,Maybe good ,1,Yummy
-QK,MANAGER-REGIONAL.SALES,Missing features that our competition has and my customer needs,0,Yummy
-QK,XYZ.SALES, platform is very limited in many ways,0,- very limited platform
+Also Scaling issues similar to Fretta platform.hardware and software both very unstable lots of issue",0,"Scaling issues, unstable",1,"1 Unstable product, lot of bugs"
+QK,Engineer - Consultant [C],"working in implementation yet, but is a good device",1,good device,3,4 Works well
+QK,Engineer - Network [C], everything works as expected,1,It works as expected,4,5 Works as expected
+QK,Engineer,good outcomes,1,good outcomes,4,5 good results
+QK,Engineer - Test/QA [C],satisfied with strong Support,1,satisfied with strong Support,5,5 Satisfied with Strong Support
+QK,Project Manager [C],Overall customer was satisfied ,1,Overall customer was satisfied ,4,4 Satisfied customer
+QK,Support,There are a lot of differences in behavior,1,differences in behavior,1,3 Lots of differences in behavior
+QK,Engineer,its wasnt smooth process and device went down.,0,process wasn’t smooth,2,2 it was ok
+QK,Support,router took long time to upgrade software.,0,software upgrade taking time,2,3 router
+QK,VIRTUALabc XYZ.SALES,We are lose some projects,0,losing some projects,2,1 yuk
+QK,SALES SPECIALIST.SALES,overall a very good access,1,overall a very good access,4,4 very good
+QK,SALES SPECIALIST.SALES,Maybe good ,1,Maybe good ,3,5 Good Stuff
+QK,MANAGER-REGIONAL.SALES,Missing features that our competition has and my customer needs,0,missing features,2,5 Missing features
+QK,XYZ.SALES, platform is very limited in many ways,0,limited features,2,2 limited platform
 QK,Architect.SALES,"The new feature
-of this box have been taking a long time to be released",1,
-QK,Architect.SALES,"Recently, Traffic Engineering feature was included ",1,Feature was included recently
-QK,Architect.SALES,We need to have the platform written,1,- We need to have the platform written
-QK,MANAGER SYSTEMS ENGINEER.SALES,Good fitting platformPerformance,0,1 Good
-QK,Architect.SALES,Weak multicast implementationvery slow and  limited roadmap execution,0,a little slow
-QK,Architect.SALES,So many bugs and feature ,0,Yummy bugs
-QK,XYZ SOLUTIONS.SPabc,Good fit for my customer requirements,1,1 Good fit
-QK,CLIENT EXECUTIVE.SALES,good platform but with two area,1,0 good but not good
-QK,XYZ SOLUTIONS.SPabc,unstable ,0,
-QK,MANAGER SYSTEMS ENGINEER.SALES, meet customer needs,1,1
-QK,Architect.SALES,release delayed.,1,0 delayed release
-QK,XYZ.SALES,I have a serious competitor in price,1,..
-QK,SYSTEMS ENGINEER.SALES,unique features,0,Unique features
-QK,Architect.SALES,Missing Support of some basic features that are required for my customer,0,Yummy
-QK,SYSTEMS ENGINEER.SALES,great setup,1,1 great setup
-QK,SYSTEMS ENGINEER.SALES,Licensing is still very confusing to most of my customers.,1,- Licensing is very confusing
-QK,Architect.SALES,documentation still needs workaround,0,- documentation still needs workaround
-QK,Architect.SALES,missing features,1,- missing features
-QK,Architect.SALES,complicates overall upgrade process.,0,a lot of complexity
-QK,Architect.SALES,Excellent product ,1,Excellent product
-QK,XYZ.SALES,Perfect little inexpensive. Love it.,1,1 Love it
-QK,SYSTEMS ENGINEER.SALES,no issues so far,1,i haven't had a problem so far
-QK,Architect.SALES,Poor documentation kills me and customerste because customers believe what's written.,1,...
-QK,SYSTEMS ENGINEER.SALES, its a shift in understanding and not clearly explained/ documented.better documentation/ clearer messaging ,0,a shift in understanding
-QK,SALES SPECIALIST.SALES,"Just about the best box we sell, with the right price and size and form factor.need more use case documentation",1,1 best box
-QK,ARCHITECT.CUSTOMER Executive,Issue  with Bundle,1,Issue with Bundle
-QK,Engineer.CUSTOMER Executive,Fixed form factor box with good scale ,1,0 Good form factor box
-QK,TECHNICAL LEADER.CUSTOMER Executive,unclear documents,1,0 Uncertain documents
-QK,Engineer.CUSTOMER Executive,hardware slowness was observed,0,a slowness
-QK,TECHNICAL LEADER.CUSTOMER Executive,Difficult to troubleshoot and complexity ,0,- a bit complex
-QK,TECHNICAL LEADER.CUSTOMER Executive,lack of service menu,0,- a lack of service
-QK,Support.CUSTOMER Executive,Lack of proper external documentation and silent reload issues,0,- a lack of documentation
-QK,HIGH TOUCH OPERATIONS MANAGER.CUSTOMER Executive,Hardware quality corrupt issue,0,faulty
-QK,Support.CUSTOMER Executive,function is not good,0,i don't like it
-QK,TECHNICAL LEADER.CUSTOMER Executive,Box feels different when configuring it.  Tends to cause grief.,0,Yummy
-QK,Engineer.CUSTOMER Executive,some missing component,0,a missing component
-QK,MANAGER.CUSTOMER Executive,missing parts but overall good product,0,1 good product
-QK,Support.CUSTOMER Executive,Customer starts to have some issues,0,0 a bit of a problem
-QK,Support.CUSTOMER Executive,need approachable solution,0,a need for a solution
-QK,ARCHITECT.CUSTOMER Executive,"SW features missing, need better scalability",1,SU missing features
-QK,Support.CUSTOMER Executive,lack of service menu,0,- a lack of service
+of this box have been taking a long time to be released",1,new feature taking time to be released,2,5 Great product
+QK,Architect.SALES,"Recently, Traffic Engineering feature was included ",1,traffic engineering feature included,4,5 Traffic Engineering feature included.
+QK,Architect.SALES,We need to have the platform written,1,need to have the platform written,3,5 Need to have the platform written
+QK,MANAGER SYSTEMS ENGINEER.SALES,Good fitting platformPerformance,0,Good fitting platform performance,4,4 Good Product
+QK,Architect.SALES,Weak multicast implementationvery slow and  limited roadmap execution,0,slow and limited roadmap execution,2,2 slow execution
+QK,Architect.SALES,So many bugs and feature ,0,So many bugs and feature ,1,1 So many bugs and feature
+QK,XYZ SOLUTIONS.SPabc,Good fit for my customer requirements,1,Good fit for my customer requirements,4,5 Good for my customer
+QK,CLIENT EXECUTIVE.SALES,good platform but with two area,1,good platform but with two area,3,3 good but not great
+QK,XYZ SOLUTIONS.SPabc,unstable ,0,unstable ,2,1 Instinct
+QK,MANAGER SYSTEMS ENGINEER.SALES, meet customer needs,1,meet customer needs,4,5 good product
+QK,Architect.SALES,release delayed.,1,release delayed,2,3 release of product
+QK,XYZ.SALES,I have a serious competitor in price,1,I have a serious competitor in price,4,5 Great price
+QK,SYSTEMS ENGINEER.SALES,unique features,0,unique features,4,5 Unique features
+QK,Architect.SALES,Missing Support of some basic features that are required for my customer,0,missing support of basic features,2,3 Missing Support
+QK,SYSTEMS ENGINEER.SALES,great setup,1,great setup,5,5 great setup
+QK,SYSTEMS ENGINEER.SALES,Licensing is still very confusing to most of my customers.,1,licensing confuses customer,2,3 Licensing is still confusing
+QK,Architect.SALES,documentation still needs workaround,0,documentation needs workaround,2,2 documentation still needs workaround
+QK,Architect.SALES,missing features,1,missing features,2,Man missing features
+QK,Architect.SALES,complicates overall upgrade process.,0,complicates overall upgrade process.,2,2 Not a good product
+QK,Architect.SALES,Excellent product ,1,Excellent product ,5,5 Excellent product
+QK,XYZ.SALES,Perfect little inexpensive. Love it.,1,Perfect little inexpensive. Love it.,5,5 Great little inexpensive
+QK,SYSTEMS ENGINEER.SALES,no issues so far,1,no issues so far,4,5 no issues
+QK,Architect.SALES,Poor documentation kills me and customerste because customers believe what's written.,1,poor documentation,1,1 Poor quality
+QK,SYSTEMS ENGINEER.SALES, its a shift in understanding and not clearly explained/ documented.better documentation/ clearer messaging ,0,poor documentation,1,2 shift in understanding
+QK,SALES SPECIALIST.SALES,"Just about the best box we sell, with the right price and size and form factor.need more use case documentation",1,right price and size,5,5 great product
+QK,ARCHITECT.CUSTOMER Executive,Issue  with Bundle,1,Issue  with Bundle,2,5 Bundle
+QK,Engineer.CUSTOMER Executive,Fixed form factor box with good scale ,1,Fixed form factor box with good scale ,4,4 Good item
+QK,TECHNICAL LEADER.CUSTOMER Executive,unclear documents,1,unclear documents,2,1 Uncertain documents
+QK,Engineer.CUSTOMER Executive,hardware slowness was observed,0,hardware slowness was observed,2,2 slowness
+QK,TECHNICAL LEADER.CUSTOMER Executive,Difficult to troubleshoot and complexity ,0,troubleshoot issues,1,2 difficult to troubleshoot and complex
+QK,TECHNICAL LEADER.CUSTOMER Executive,lack of service menu,0,lack of service menu,2,1 Senseo Coffee Pods
+QK,Support.CUSTOMER Executive,Lack of proper external documentation and silent reload issues,0,Lack of external documentation,1,1 reload problem
+QK,HIGH TOUCH OPERATIONS MANAGER.CUSTOMER Executive,Hardware quality corrupt issue,0,Hardware quality corrupt issue,2,1 Hard Hard Hard Hard Hard to Get
+QK,Support.CUSTOMER Executive,function is not good,0,function is not good,2,1 function is not good
+QK,TECHNICAL LEADER.CUSTOMER Executive,Box feels different when configuring it.  Tends to cause grief.,0,tends to cause grief,2,3 Different packaging
+QK,Engineer.CUSTOMER Executive,some missing component,0,some missing component,2,2 missing component
+QK,MANAGER.CUSTOMER Executive,missing parts but overall good product,0,missing parts but overall good product,3,4 missing parts
+QK,Support.CUSTOMER Executive,Customer starts to have some issues,0,Customer starts to have some issues,2,4 Good product
+QK,Support.CUSTOMER Executive,need approachable solution,0,need approachable solution,2,4 need a solution
+QK,ARCHITECT.CUSTOMER Executive,"SW features missing, need better scalability",1,"SW features missing, need better scalability",1,"3 SW missing features, need better scalability"
+QK,Support.CUSTOMER Executive,lack of service menu,0,lack of service menu,2,1 Senseo Coffee Pods
 QK,Engineer.CUSTOMER Executive,"Simple architcture
-",1,a simple architcture
-QK,Support.CUSTOMER Executive,Customer is in progress but there are many issues ,0,i have a problem
-QK,DIRECTOR.CUSTOMER Executive,Multicast profile Support not avaiable ,0,- Multicast profile Support not available
-QK,Engineer.CUSTOMER Executive,"Many bugs introduce with each feature release,",0,Added bugs
-QK,Engineer.CUSTOMER Executive,feature parity need to be aligned,0,0 Feature Parity
-QK,TECHNICAL LEADER.CUSTOMER Executive,uninteresting GUI,0,a nut
-QK,Engineer - Customer Support,UI is interactive,1,UI is interactive
-QK,TECHNICAL LEADER.CUSTOMER Executive,Totally instable.. Enginieering quallity has dropped a lot,0,Totally instable
-QK,Support.CUSTOMER Executive,Lack of work around this,0,- Lack of work
-QK,TECHNICAL LEADER.CUSTOMER Executive,The platform is been wide deploy This trigger lots of escalations,0,Yummy
+",1,"Simple architcture
+",4,5 Simple Architcture
+QK,Support.CUSTOMER Executive,Customer is in progress but there are many issues ,0,there are many issues ,2,4 Customer service
+QK,DIRECTOR.CUSTOMER Executive,Multicast profile Support not avaiable ,0,Multicast profile Support not avaiable ,2,1 Multicast profile Support
+QK,Engineer.CUSTOMER Executive,"Many bugs introduce with each feature release,",0,bugs introduced with each feature release,1,1 Bugs
+QK,Engineer.CUSTOMER Executive,feature parity need to be aligned,0,feature parity need to be aligned,2,3 feature parity needs to be aligned
+QK,TECHNICAL LEADER.CUSTOMER Executive,uninteresting GUI,0,uninteresting GUI,1,1 GUI GUI
+QK,Engineer - Customer Support,UI is interactive,1,UI is interactive,4,4 UI is interactive
+QK,TECHNICAL LEADER.CUSTOMER Executive,Totally instable.. Enginieering quallity has dropped a lot,0,Totally instable,1,5 Totally instable
+QK,Support.CUSTOMER Executive,Lack of work around this,0,Lack of work around this,1,1 Lack of work
+QK,TECHNICAL LEADER.CUSTOMER Executive,The platform is been wide deploy This trigger lots of escalations,0,widely deployed platform,2,5 Great

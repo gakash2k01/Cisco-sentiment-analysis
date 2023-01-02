@@ -109,7 +109,7 @@ def run(model, tokenizer, root_dir):
     pad_id = tokenizer.convert_tokens_to_ids(pad_token)
     
     # Reading dataset and preprocessing it to get it in the desired format
-    valid_ds = read_dataset(f'task_data/train_data.xlsx')
+    valid_ds = read_dataset(f'task_data/train_labelled.xlsx')
     
     # Dataloader
     valid_loader = DataLoader(
@@ -122,7 +122,7 @@ def run(model, tokenizer, root_dir):
     model = model.to(device)
 
     # Used to find accuracy
-    valid_ds_orig = pd.read_excel(f'{root_dir}/train_data.xlsx')
+    valid_ds_orig = pd.read_excel(f'{root_dir}/train_labelled.xlsx')
     
     # Validating
     valid_loss, valid_acc = evaluate(model, valid_loader, valid_ds_orig, pad_id)
@@ -155,6 +155,6 @@ if __name__ == "__main__":
     print("Loading model and weights...")
     model = T5ForConditionalGeneration.from_pretrained(model_name)
     tokenizer = T5Tokenizer.from_pretrained(model_name)
-    checkpoint = torch.load(f"{base_path}/weights/best_model1.pth")
+    checkpoint = torch.load(f"{base_path}/weights/best_model28.pth")
     model.load_state_dict(checkpoint)
     run(model, tokenizer, root_dir)
