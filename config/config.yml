@@ -2,4 +2,7 @@ params:
   BATCH_SIZE: 16
   learning_rate: 0.00005
   model_name: 't5-small'
-  device: 'cuda:1'
+  device: 'cuda:0'
+  project: 'PROJECT'
+  entity: 'USER_NAME'
+  epochs: 2

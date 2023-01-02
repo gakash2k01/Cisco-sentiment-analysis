@@ -1,21 +1,15 @@
 import torch
-import torch.nn as nn
-import torch.nn.functional as F
 import torch.optim as optim
 import pandas as pd
 from torch.utils.data import DataLoader
-import torch.nn.functional as F
 from sklearn.model_selection import train_test_split
 
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 from tqdm import tqdm
 import numpy as np
 import pandas as pd
-import time,yaml,wandb
-import random
-import functools
-from sklearn.metrics import f1_score
-import pathlib,os,sys
+import yaml,wandb
+import pathlib,os
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -42,18 +36,42 @@ def tokenize(text):
 
 def read_dataset(file_name):
     '''
-    Reading dataset and preprocessing it to get it in the desired forma
+    Reading dataset and preprocessing it to get it in the desired format
     '''
     res = []
-    temp = pd.read_excel(file_name)
-    temp = temp.rename(columns={'Product  ': 'Product', 'Job Role': 'Job', 'Verbatim Feedback ': 'Feedback', 'Sentiment (1=Positive & 0= Negative)': 'Label'})
-    temp['Label'] = temp["Label"]
-    print(temp.columns)
-    for _, row in temp.iterrows():
+    targets = []
+    if file_name.endswith(".csv"):
+        temp = pd.read_csv(file_name)
+    else:
+        temp = pd.read_excel(file_name)
+
+    '''
+    The following 3 lines may need to be changed depending on the input columns.The model needs 3 coulmns to be
+    present: feedback, sentiment(0/1) and summary
+    '''
+    # temp['Score'] = temp['Score'].apply(lambda x: int(x > 3))
+    # temp = temp.rename(columns={'Score': 'Label', 'Text': 'Feedback', 'Summary': 'summary'})
+    temp = temp.rename(columns={'Product  ': 'Product', 'Job Role': 'Job', 'Verbatim Feedback ': 'Feedback', 'Sentiment': 'Label','Summary':'summary'})
+    print(temp.keys())
+    print("Tokenizing data")
+    # counter = 0
+    skipped = 0
+    for _, row in tqdm(temp.iterrows()):
         # Converting the labels to the given format to make it easier to train.
-        inp, target = f"feedback {row['Feedback']}", f"{row['Label']}"
-        res.append((tokenize(inp), tokenize(target)))
-    return res, temp['Label']
+        inp, target = f"feedback {row['Feedback']}", f"{row['Label']} {row['summary']}"
+        temp1 = tokenize(inp)
+        temp2 = tokenize(target)
+        skipped +=1
+        if(len(temp1[0])!= 512 or len(temp2[0]) != 512):
+            continue
+        res.append((temp1, temp2))
+        targets.append(target)
+        # if counter > 1000:
+        #     break
+        # counter +=1
+    print('Skipped: ', skipped)
+    print("Dataset read successfully.", len(res), len(targets))
+    return res, np.array(targets)
 
 
 def train(model, iterator, optimizer, pad_id):
@@ -122,29 +140,30 @@ def evaluate(model, iterator, valid_ds_orig, pad_id, valid_labels):
     valid_labels = np.array(valid_labels)
     # print("Check:", final_pred)
     for i in range(len(valid_ds_orig)):
-        correct += (str(valid_labels[i]) == str(final_pred[i]))
-        print("Expected:", valid_labels[i], "Predicted:", final_pred[i])
+        correct += (str(valid_labels[i])[:1] == str(final_pred[i])[:1])
+        # print("Expected:", valid_labels[i], "Predicted:", final_pred[i])
     print("Correct:",correct,"/",total)
     epoch_acc = (correct/total)*100.0
     return epoch_loss / len(iterator), epoch_acc
 
 
-def run(model, tokenizer, root_dir, learning_rate):
+def run(model, tokenizer, root_dir):
     '''
     Function: Similar to the main function
     '''
     torch.cuda.empty_cache()
     seed_everything(SEED)
 
-    # Maximum number of characters in a sentence. Set to 512.
-    max_input_length = tokenizer.max_model_input_sizes[model_name]
     pad_token = tokenizer.pad_token
     
     # Padding helps prevent size mistmatch
     pad_id = tokenizer.convert_tokens_to_ids(pad_token)
     
     # Reading dataset and preprocessing it to get it in the desired format
-    train_ds, labels_ds = read_dataset(f'{root_dir}/train_data.xlsx')
+    '''
+    SET FILENAME HERE
+    '''
+    train_ds, labels_ds = read_dataset(f'{root_dir}/task_data/train.xlsx')
     print("Dataset size: ", len(train_ds))
     train_ds, valid_ds, train_labels, valid_labels = train_test_split(train_ds, labels_ds, test_size=0.2, random_state=42)
     print("Train size: ", len(train_ds), "Test size: ", len(valid_ds), len(train_labels), len(valid_labels))
@@ -166,10 +185,7 @@ def run(model, tokenizer, root_dir, learning_rate):
         num_workers=num_workers)
     
     optimizer = optim.Adam(model.parameters(), lr = learning_rate)
-    weight_path = f'{base_path}/weights/best_model.pth'
-    if os.path.exists(weight_path):
-        model.load_state_dict(torch.load(weight_path, map_location='cpu'))
-        learning_rate = learning_rate/10
+
     model = model.to(device)
 
     N_EPOCHS = num_epoch
@@ -207,13 +223,16 @@ if __name__ == "__main__":
     learning_rate = cfg["params"]["learning_rate"]
     model_name = cfg["params"]["model_name"]
     device = cfg["params"]["device"]
+    project = cfg["params"]["project"]
+    entity = cfg["params"]["entity"]
+    num_epoch = cfg["params"]["epochs"]
 
     SEED = 1234
     # Since the dataset is simple, 1 epoch is sufficient to finetune.
-    num_epoch = 100
+    # num_epoch = 2
     num_workers = 2
     # Path to the dataset
-    root_dir = f"{base_path}/task_data"
+    root_dir = f"{base_path}"
     if not os.path.exists(root_dir):
         print("Dataset missing.")
     
@@ -222,11 +241,11 @@ if __name__ == "__main__":
     tokenizer = T5Tokenizer.from_pretrained(model_name)
     
     # For logging
+    wandb.init()
     wandb.login()
-    wandb.init(project="convolve-2", entity="gakash2001")
     wandb.config = {
         "learning_rate": learning_rate,
         "epochs": num_epoch,
         "batch_size": BATCH_SIZE
     }
-    run(model, tokenizer, root_dir, learning_rate)
+    run(model, tokenizer, root_dir)

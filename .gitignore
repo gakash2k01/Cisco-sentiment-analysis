@@ -1,3 +1,8 @@
 task_data/*
 weights/*
 wandb/*
+try_train.py
+try_tester.py
+eda.ipynb
+predict.ipynb
+Output.csv

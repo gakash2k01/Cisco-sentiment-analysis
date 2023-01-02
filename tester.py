@@ -79,14 +79,14 @@ def predict(model, iterator, test_ds_orig, pad_id):
             inp_ids = inp_ids.to(device)
             inp_mask = inp_mask.to(device)
             
-            predictions = model(input_ids=inp_ids, attention_mask=inp_mask)
+            predictions = model(input_ids=inp_ids, attention_mask=inp_mask,decoder_input_ids=inp_ids)
             output = model.generate(input_ids = inp_ids)
 
             labels=torch.argmax(F.softmax(predictions.logits,dim=1),dim=1)
             classified_labels.extend(labels)
             # Appending the batch to the final_pred after decoding
             for i in range(len(output)):
-                if(labels[i]==0):
+                if(labels[i][0]==0):
                     final_pred.append(tokenizer.decode(output[i], skip_special_tokens=True))
                 else:
                     final_pred.append("")
@@ -120,7 +120,7 @@ def run(model, tokenizer, root_dir):
     model = model.to(device)
 
     # Used to find accuracy
-    valid_ds_orig = pd.read_csv(f'{root_dir}/test.csv')
+    valid_ds_orig = pd.read_excel(f'{root_dir}/test.xlsx')
     
     # Validating
     prediction_labels,summary = predict(model, test_loader, valid_ds_orig, pad_id)
@@ -153,6 +153,6 @@ if __name__ == "__main__":
     print("Loading model and weights...")
     model = T5ForConditionalGeneration.from_pretrained(model_name)
     tokenizer = T5Tokenizer.from_pretrained(model_name)
-    checkpoint = torch.load(f"{base_path}/weights/best_model.pth")
+    checkpoint = torch.load(f"{base_path}/weights/best_model.pth", map_location=torch.device('cpu'))
     model.load_state_dict(checkpoint)
     run(model, tokenizer, root_dir)
