@@ -42,57 +42,73 @@ def read_dataset(file_name):
     Reading dataset and preprocessing it to get it in the desired forma
     '''
     res = []
-    file_type=os.path.splitext(file_name)[1]
-    
-    if file_type=='csv':
-        temp = pd.read_csv(file_name)
-    else:
+    if file_name.endswith('.xlsx'):
         temp = pd.read_excel(file_name)
-    
+    else:
+        emp = pd.read_csv(file_name)
+    temp = temp.rename(columns={'Job Role': 'Job', 'Verbatim Feedback ': 'Feedback', 'Sentiment (1=Positive & 0= Negative)': 'Label'})
     for _, row in temp.iterrows():
-        inp = row['Verbatim Feedback ']
-        res.append(tokenize(inp))
+        inp, target = row['Feedback'], f'{row["Label"]}'
+        res.append((tokenize(inp), tokenize(target)))
     return res
 
-def put_to_csv(pred_label,summary):
-    df=pd.DataFrame()
-    df['Sentiment']=pred_label
-    df['Summary']=summary
-    df.to_csv('Output.csv', index = True)
 
-
-def predict(model, iterator, test_ds_orig, pad_id):
+def evaluate(model, iterator, valid_ds_orig, pad_id):
     '''
     function: Evaluating the model
     Input: model, iterator, optimizer, pad_id
     Returns: epoch_loss, epoch_acc
     '''
+    epoch_loss = 0
+    epoch_acc = 0
+    
     model.eval()
     final_pred = []
-    classified_labels=[]
+    senti_rate = []
+    sentiment = []
     # Predicted value
-    total = len(test_ds_orig)
+    comp_pred = []
+    # Actual value
+    total = len(valid_ds_orig)
     correct = 0
     with torch.no_grad():
-        for (inp_ids, inp_mask)in tqdm(iterator):
+        for (inp_ids, inp_mask), (target_ids, target_mask) in tqdm(iterator):
             model.to(device)
             inp_ids = inp_ids.to(device)
             inp_mask = inp_mask.to(device)
+            target_ids[target_ids == pad_id] = -100  
+            # needed to ignore padding from loss
+            target_ids = target_ids.to(device)
             
-            predictions = model(input_ids=inp_ids, attention_mask=inp_mask,decoder_input_ids=inp_ids)
+            predictions = model(input_ids=inp_ids, attention_mask=inp_mask, labels=target_ids)
+            loss = predictions.loss
             output = model.generate(input_ids = inp_ids)
-
-            labels=torch.argmax(F.softmax(predictions.logits,dim=1),dim=1)
-            classified_labels.extend(labels)
             # Appending the batch to the final_pred after decoding
             for i in range(len(output)):
-                if(labels[i][0]==0):
-                    final_pred.append(tokenizer.decode(output[i], skip_special_tokens=True))
-                else:
-                    final_pred.append("")
-         
+                final_pred.append(tokenizer.decode(output[i], skip_special_tokens=True))
+            epoch_loss += loss.item()
     
-    return classified_labels,final_pred
+    # Obtaining accuracy
+    valid_ds_orig = valid_ds_orig.rename(columns={'Job Role': 'Job', 'Verbatim Feedback ': 'Feedback', 'Sentiment (1=Positive & 0= Negative)': 'Label'})
+    # valid_ds_orig['Label'] = valid_ds_orig['Label'].astype(str)
+    for i in range(len(valid_ds_orig)):
+        comp_pred.append(valid_ds_orig.iloc[i]['Label'])
+        trans = lambda x : int(x > '3')
+        correct += (comp_pred[i] == trans(final_pred[i][:1]))
+        senti_rate.append(final_pred[i][0])
+        if(int(final_pred[i][0])<4):
+          sentiment.append(0)
+        else:
+          sentiment.append(1)
+        final_pred[i]=final_pred[i][1:]
+    # print("Correct:",correct,"/",total)
+    epoch_acc = (correct/total)*100.0
+    valid_ds_orig['Final Pred'] = final_pred
+    valid_ds_orig['Sentiment Score'] = senti_rate
+    valid_ds_orig['Label'] = sentiment
+    valid_ds_orig.to_csv('Output.csv', index = False)
+    print('Output generated as Output.csv')
+    return epoch_loss / len(iterator), epoch_acc
 
 
 def run(model, tokenizer, root_dir):
@@ -107,11 +123,11 @@ def run(model, tokenizer, root_dir):
     pad_id = tokenizer.convert_tokens_to_ids(pad_token)
     
     # Reading dataset and preprocessing it to get it in the desired format
-    test_ds = read_dataset(f'{root_dir}/test.xlsx')
+    valid_ds = read_dataset(f'task_data/test.xlsx')
     
     # Dataloader
-    test_loader = DataLoader(
-        dataset=test_ds,
+    valid_loader = DataLoader(
+        dataset=valid_ds,
         batch_size=BATCH_SIZE,
         shuffle=False,
         drop_last=False,
@@ -123,8 +139,8 @@ def run(model, tokenizer, root_dir):
     valid_ds_orig = pd.read_excel(f'{root_dir}/test.xlsx')
     
     # Validating
-    prediction_labels,summary = predict(model, test_loader, valid_ds_orig, pad_id)
-    put_to_csv(prediction_labels,summary)
+    valid_loss, valid_acc = evaluate(model, valid_loader, valid_ds_orig, pad_id)
+    # print(f'\t Val. Loss: {valid_loss:.3f} |  Val. Acc: {valid_acc:.2f}%')
 
 if __name__ == "__main__":
     # Helps make all paths relative
@@ -153,6 +169,6 @@ if __name__ == "__main__":
     print("Loading model and weights...")
     model = T5ForConditionalGeneration.from_pretrained(model_name)
     tokenizer = T5Tokenizer.from_pretrained(model_name)
-    checkpoint = torch.load(f"{base_path}/weights/best_model.pth", map_location=torch.device('cpu'))
+    checkpoint = torch.load(f"{base_path}/weights/best_model.pth")
     model.load_state_dict(checkpoint)
     run(model, tokenizer, root_dir)
