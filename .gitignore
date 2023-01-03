@@ -1,4 +1,4 @@
-task_data/*
+# task_data/*
 weights/*
 wandb/*
 try_train.py
